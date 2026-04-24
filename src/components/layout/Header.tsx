@@ -44,7 +44,7 @@ const Header = () => {
         >
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
-              <img src="/logo-dark.png" alt="Ajinorah Academy" className="h-12 md:h-16 w-auto object-contain" />
+              <img src="/logo-white-bg.png" alt="Ajinorah Academy" className="h-12 md:h-16 w-auto object-contain mix-blend-multiply" />
             </Link>
 
             {/* Desktop Menu */}

@@ -40,7 +40,7 @@ const AdminSidebar = () => {
   return (
     <aside className="w-80 h-screen bg-dark sticky top-0 flex flex-col p-8 z-50 overflow-y-auto">
       <Link href="/" className="flex items-center mb-16 hover:opacity-80 transition-opacity">
-        <img src="/logo.png" alt="Ajinorah Academy" className="h-24 w-auto object-contain" />
+        <img src="/logo-dark-bg.png" alt="Ajinorah Academy" className="h-24 w-auto object-contain" />
       </Link>
 
       <nav className="flex-1 space-y-2">

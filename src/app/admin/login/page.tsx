@@ -62,7 +62,7 @@ const LoginPage = () => {
       >
         <div className="bg-white/80 backdrop-blur-xl p-10 md:p-14 rounded-[3.5rem] shadow-[0_32px_64px_-15px_rgba(0,0,0,0.05)] border border-white">
             <div className="flex justify-center mb-0">
-              <img src="/logo-dark.png" alt="Ajinorah Academy" className="h-28 w-auto object-contain" />
+              <img src="/logo-white-bg.png" alt="Ajinorah Academy" className="h-28 w-auto object-contain mix-blend-multiply" />
             </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
