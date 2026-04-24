@@ -39,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} ${playfair.variable} font-poppins antialiased bg-light text-dark`}>
+        <Toaster position="top-right" />
         <Providers>
           {children}
         </Providers>

@@ -58,6 +58,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <motion.button 
       ref={btnRef}
+      type={props.type || 'button'}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{ x: position.x, y: position.y }}
