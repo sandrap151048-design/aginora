@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,7 +8,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'blue' | 'black';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   fullWidth?: boolean;
