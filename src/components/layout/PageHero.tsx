@@ -14,7 +14,7 @@ interface PageHeroProps {
  */
 export default function PageHero({ title, subtitle, bgImage }: PageHeroProps) {
   return (
-    <section className="relative h-[65vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <img 
           src={bgImage} 
