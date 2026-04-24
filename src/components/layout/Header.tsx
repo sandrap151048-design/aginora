@@ -32,14 +32,14 @@ const Header = () => {
 
   return (
     <>
-      <div className="fixed top-6 left-0 w-full z-50 px-4 pointer-events-none">
+      <div className="fixed top-4 left-0 w-full z-50 px-4 pointer-events-none">
         <motion.header 
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className={`container mx-auto max-w-6xl pointer-events-auto transition-all duration-500 rounded-3xl border bg-white shadow-xl ${
+          className={`container mx-auto max-w-6xl pointer-events-auto transition-all duration-500 rounded-2xl border bg-white shadow-xl ${
             isScrolled 
-              ? 'border-slate-200 py-1.5 px-4' 
-              : 'border-slate-100 py-2.5 px-6'
+              ? 'border-slate-200 py-1 px-3' 
+              : 'border-slate-100 py-1.5 px-4'
           }`}
         >
           <div className="flex justify-between items-center">

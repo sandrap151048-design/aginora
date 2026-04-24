@@ -123,22 +123,10 @@ const Courses = () => {
                         return (
                           <div className="flex gap-3">
                             <Link href={slug ? `/courses/${slug}` : '/courses'} className="flex-1">
-                              <Button variant="outline" fullWidth size="sm" className="rounded-xl border-slate-100 text-slate-600 group-hover:bg-primary-green group-hover:text-white group-hover:border-primary-green transition-all py-2.5">
+                              <Button variant="outline" fullWidth size="sm" className="rounded-xl border-slate-100 text-slate-600 group-hover:bg-primary-green group-hover:text-white group-hover:border-primary-green transition-all py-2">
                                 View Details
                               </Button>
                             </Link>
-                            {slug && (
-                              <button 
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  window.open(`/brochures/${slug}.pdf`, '_blank');
-                                }}
-                                className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-primary-green hover:border-primary-green transition-all"
-                                title="Download Brochure"
-                              >
-                                <Download size={20} />
-                              </button>
-                            )}
                           </div>
                         );
                       })()}
