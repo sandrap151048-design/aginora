@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, User, Phone, Mail, GraduationCap } from 'lucide-react';
 import Button from './ui/Button';
+import { toast } from 'react-hot-toast';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -29,16 +30,23 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      if (res.ok) {
+      
+      const data = await res.json();
+      
+      if (res.ok && data.success) {
+        toast.success('Application submitted successfully!');
         setSubmitted(true);
         setTimeout(() => {
           onClose();
           setSubmitted(false);
           setFormData({ name: '', email: '', phone: '', course: '', message: '' });
         }, 2000);
+      } else {
+        toast.error(data.error || 'Failed to submit application');
       }
     } catch (err) {
       console.error(err);
+      toast.error('Connection error. Please try again.');
     } finally {
       setLoading(false);
     }
