@@ -61,14 +61,9 @@ const LoginPage = () => {
         className="max-w-md w-full z-10"
       >
         <div className="bg-white/80 backdrop-blur-xl p-10 md:p-14 rounded-[3.5rem] shadow-[0_32px_64px_-15px_rgba(0,0,0,0.05)] border border-white">
-          <div className="text-center mb-12">
             <div className="flex justify-center mb-0">
-              <div className="flex items-center gap-2">
-                <div className="w-12 h-12 bg-dark rounded-[1.2rem] flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-black/10">A</div>
-                <span className="font-black text-3xl tracking-tighter text-dark">Ajinorah<span className="text-primary-green">.</span></span>
-              </div>
+              <img src="/logo-dark.png" alt="Ajinorah Academy" className="h-28 w-auto object-contain" />
             </div>
-          </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="space-y-3">

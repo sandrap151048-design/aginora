@@ -15,9 +15,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* About Section */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-primary-green rounded-2xl flex items-center justify-center text-white font-black text-xl">A</div>
-              <span className="font-black text-2xl tracking-tighter">Ajinorah<span className="text-primary-green">.</span></span>
+            <div className="flex items-center mb-6">
+              <img src="/logo.png" alt="Ajinorah Academy" className="h-20 w-auto object-contain" />
             </div>
             <p className="text-slate-400 mb-6 leading-relaxed">
               Leading entrance coaching institute for NEET, JEE, and KEAM. We provide quality education with a focus on conceptual clarity.

@@ -43,9 +43,8 @@ const Header = () => {
           }`}
         >
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary-green rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-green-500/20">A</div>
-              <span className="font-black text-2xl tracking-tighter text-dark">Ajinorah<span className="text-primary-green">.</span></span>
+            <Link href="/" className="flex items-center">
+              <img src="/logo-dark.png" alt="Ajinorah Academy" className="h-12 md:h-16 w-auto object-contain" />
             </Link>
 
             {/* Desktop Menu */}
