@@ -8,7 +8,8 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-interface ButtonProps extends Omit<HTMLMotionProps<"button">, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "children"> {
+  children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'blue' | 'black';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   fullWidth?: boolean;
