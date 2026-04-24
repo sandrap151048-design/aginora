@@ -6,10 +6,15 @@ export async function POST(req: Request) {
   try {
     await dbConnect();
     const body = await req.json();
+    console.log("Incoming Application Body:", body);
     const enquiry = await Enquiry.create(body);
-    return NextResponse.json({ success: true, data: enquiry });
-  } catch (error) {
-    console.error('Application Error:', error);
-    return NextResponse.json({ success: false, error: 'Failed to submit application' }, { status: 500 });
+    return NextResponse.json({ success: true, data: enquiry }, { status: 201 });
+  } catch (error: any) {
+    console.error('Application API Error:', error);
+    return NextResponse.json({ 
+      success: false, 
+      error: error.message || 'Failed to submit application',
+      details: error
+    }, { status: 500 });
   }
 }
