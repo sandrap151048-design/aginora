@@ -26,7 +26,7 @@ async function connectDB() {
     };
 
     console.log("Connecting to MongoDB...");
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(MONGODB_URI as string, opts).then((mongoose) => {
       console.log("MongoDB Connected Successfully");
       return mongoose;
     }).catch(err => {
