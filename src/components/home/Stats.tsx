@@ -12,9 +12,9 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -22,7 +22,7 @@ const Stats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl bg-secondary-blue/30 border border-slate-50 text-center hover-lift"
+              className="p-6 md:p-8 rounded-2xl md:rounded-3xl bg-secondary-blue/30 border border-slate-50 text-center hover-lift"
             >
               <div className={`w-16 h-16 ${stat.bg} ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
                 <stat.icon size={32} />

@@ -32,14 +32,14 @@ const steps = [
 
 const Methodology = () => {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-12 md:py-20 bg-slate-50">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2 space-y-8">
-            <div className="inline-block px-4 py-2 bg-primary-green/10 text-primary-green rounded-full text-xs font-black uppercase tracking-widest">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+          <div className="lg:w-1/2 space-y-6 md:space-y-8">
+            <div className="inline-block px-4 py-2 bg-primary-green/10 text-primary-green rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest">
               Our Methodology
             </div>
-            <h2 className="text-5xl md:text-6xl font-semibold text-dark leading-tight">
+            <h2 className="text-4xl md:text-6xl font-semibold text-dark leading-tight">
               How We Create <br />
               <span className="text-primary-green">Champions.</span>
             </h2>

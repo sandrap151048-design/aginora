@@ -77,45 +77,45 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Left Content */}
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2 space-y-8 md:space-y-12">
               <div className="space-y-6">
-                <h2 className="text-4xl font-bold text-dark underline decoration-primary-green decoration-4 underline-offset-8">Course Overview</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-dark underline decoration-primary-green decoration-4 underline-offset-8">Course Overview</h2>
                 <p className="text-xl text-slate-500 font-medium leading-[1.8]">
                   {course.longDesc}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="relative p-10 rounded-[3.5rem] overflow-hidden bg-slate-900 border border-slate-100/10">
+                <div className="relative p-8 md:p-10 rounded-2xl md:rounded-[3.5rem] overflow-hidden bg-slate-900 border border-slate-100/10">
                   <div className="absolute inset-0 z-0">
                     <img src={syllabusImages[params.slug] || '/courses/neet.jpg'} alt="Syllabus" className="w-full h-full object-cover opacity-30" />
                     <div className="absolute inset-0 bg-black/50" />
                   </div>
                   <div className="relative z-10 space-y-6">
-                    <h3 className="text-2xl font-bold flex items-center gap-3 text-white">
+                    <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-white">
                       <GraduationCap className="text-primary-green" size={28} /> Syllabus
                     </h3>
-                    <ul className="space-y-4">
+                    <ul className="space-y-3 md:space-y-4">
                       {course.syllabus.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-white/70 font-bold text-sm uppercase tracking-wide">
+                        <li key={i} className="flex items-start gap-3 text-white/70 font-bold text-[10px] md:text-sm uppercase tracking-wide">
                           <ChevronRight size={18} className="text-primary-green shrink-0" /> {item}
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-                <div className="relative p-10 rounded-[3.5rem] overflow-hidden bg-slate-900 border border-slate-100/10">
+                <div className="relative p-8 md:p-10 rounded-2xl md:rounded-[3.5rem] overflow-hidden bg-slate-900 border border-slate-100/10">
                   <div className="absolute inset-0 z-0">
                     <img src={featuresImages[params.slug] || '/courses/jee.jpg'} alt="Features" className="w-full h-full object-cover opacity-30" />
                     <div className="absolute inset-0 bg-black/50" />
                   </div>
                   <div className="relative z-10 space-y-6">
-                    <h3 className="text-2xl font-bold flex items-center gap-3 text-white">
+                    <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-white">
                       <CheckCircle2 className="text-primary-blue" size={28} /> Features
                     </h3>
-                    <ul className="space-y-4">
+                    <ul className="space-y-3 md:space-y-4">
                       {course.features.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-white/70 font-bold text-sm uppercase tracking-wide">
+                        <li key={i} className="flex items-start gap-3 text-white/70 font-bold text-[10px] md:text-sm uppercase tracking-wide">
                           <CheckCircle2 size={18} className="text-primary-blue shrink-0" /> {item}
                         </li>
                       ))}
@@ -127,7 +127,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
 
             {/* Right Sidebar */}
             <div className="space-y-8">
-              <div className="relative p-10 rounded-[4rem] overflow-hidden bg-slate-900 shadow-2xl sticky top-32 border border-white/10">
+              <div className="relative p-8 md:p-10 rounded-2xl md:rounded-[4rem] overflow-hidden bg-slate-900 shadow-2xl lg:sticky lg:top-32 border border-white/10">
                 <div className="absolute inset-0 z-0">
                   <img src={enrolImages[params.slug] || '/courses/keam.jpg'} alt="Enrol Now" className="w-full h-full object-cover opacity-30" />
                   <div className="absolute inset-0 bg-black/50" />

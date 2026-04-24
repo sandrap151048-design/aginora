@@ -48,8 +48,8 @@ const WhyChooseUs = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="relative mt-12 lg:mt-0">
+            <div className="relative rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop" 
                 alt="Classroom" 
@@ -58,9 +58,9 @@ const WhyChooseUs = () => {
               <div className="absolute inset-0 bg-primary-blue/20" />
             </div>
             {/* Overlay Badge */}
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-primary-green rounded-full flex flex-col items-center justify-center text-white p-6 text-center border-8 border-white animate-pulse">
-              <p className="text-4xl font-black">12+</p>
-              <p className="text-sm font-bold uppercase tracking-wider">Years of Excellence</p>
+            <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 w-32 h-32 md:w-48 md:h-48 bg-primary-green rounded-full flex flex-col items-center justify-center text-white p-4 md:p-6 text-center border-4 md:border-8 border-white animate-pulse shadow-2xl">
+              <p className="text-2xl md:text-4xl font-black">12+</p>
+              <p className="text-[10px] md:text-sm font-bold uppercase tracking-wider leading-tight">Years of Excellence</p>
             </div>
           </div>
         </div>

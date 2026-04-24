@@ -67,22 +67,22 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative bg-white w-full max-w-xl rounded-[3rem] overflow-hidden shadow-2xl"
+            className="relative bg-white w-full max-w-xl rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl max-h-[90vh] flex flex-col"
           >
             {/* Header */}
-            <div className="bg-hero-gradient p-8 text-white relative">
+            <div className="bg-hero-gradient p-6 md:p-8 text-white relative shrink-0">
               <button 
                 onClick={onClose}
-                className="absolute top-6 right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
+                className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
               >
                 <X size={20} />
               </button>
-              <h3 className="text-3xl font-bold">Join the Academy</h3>
-              <p className="text-white/80 font-medium">Fill in your details and we'll get back to you.</p>
+              <h3 className="text-2xl md:text-3xl font-bold">Join the Academy</h3>
+              <p className="text-white/80 font-medium text-sm md:text-base">Fill in your details and we'll get back to you.</p>
             </div>
 
             {/* Content */}
-            <div className="p-8">
+            <div className="p-6 md:p-8 overflow-y-auto">
               {submitted ? (
                 <div className="py-12 text-center space-y-4">
                   <div className="w-20 h-20 bg-primary-green/10 text-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
