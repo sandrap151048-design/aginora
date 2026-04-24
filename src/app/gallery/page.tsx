@@ -6,8 +6,15 @@ import TopBanner from '@/components/layout/TopBanner';
 import PageHero from '@/components/layout/PageHero';
 import { Video, Loader2 } from 'lucide-react';
 
+const defaultGallery = [
+  { _id: 'g1', title: 'Modern Classrooms', type: 'image', url: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=800' },
+  { _id: 'g2', title: 'Interactive Sessions', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800' },
+  { _id: 'g3', title: 'Expert Mentorship', type: 'image', url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800' },
+  { _id: 'g4', title: 'Library Facilities', type: 'image', url: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=800' },
+];
+
 export default function GalleryPage() {
-  const [galleryItems, setGalleryItems] = useState<any[]>([]);
+  const [galleryItems, setGalleryItems] = useState<any[]>(defaultGallery);
   const [loading, setLoading] = useState(true);
   const [dbError, setDbError] = useState(false);
 

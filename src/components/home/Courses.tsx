@@ -5,8 +5,17 @@ import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import { ArrowUpRight, BookOpen, Download } from 'lucide-react';
 
+const defaultCourses = [
+  { _id: '1', name: 'NEET Coaching', duration: '1 Year', fees: '₹ 1,45,000', status: 'Active', description: 'Intensive medical entrance prep', image: '' },
+  { _id: '2', name: 'JEE Coaching', duration: '1 Year', fees: '₹ 1,45,000', status: 'Active', description: 'Engineering entrance prep', image: '' },
+  { _id: '3', name: 'KEAM Coaching', duration: '1 Year', fees: '₹ 1,35,000', status: 'Active', description: 'Kerala entrance prep', image: '' },
+  { _id: '4', name: 'Integrated Schooling', duration: '2 Years', fees: '₹ 1,80,000', status: 'Active', description: 'Schooling + Entrance', image: '' },
+  { _id: '5', name: 'Repeaters Batch', duration: '1 Year', fees: '₹ 1,50,000', status: 'Active', description: 'Dedicated NEET/JEE repeaters', image: '' },
+  { _id: '6', name: 'Foundation Course', duration: '2 Years', fees: '₹ 25,000', status: 'Active', description: 'Pre-entrance orientation for 8th-10th', image: '' },
+];
+
 const Courses = () => {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<any[]>(defaultCourses);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +23,9 @@ const Courses = () => {
       try {
         const res = await fetch('/api/admin/courses');
         const json = await res.json();
-        if (json.success) setCourses(json.data.filter((c: any) => c.status === 'Active'));
+        if (json.success && json.data.length > 0) {
+          setCourses(json.data.filter((c: any) => c.status === 'Active'));
+        }
       } catch (err) {
         console.error(err);
       } finally {
