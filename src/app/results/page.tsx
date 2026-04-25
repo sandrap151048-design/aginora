@@ -27,7 +27,7 @@ export default function ResultsPage() {
   }, []);
 
   return (
-    <main>
+    <main className="pt-28 md:pt-36">
       <TopBanner />
       <Header />
       

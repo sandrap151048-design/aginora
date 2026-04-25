@@ -10,7 +10,7 @@ function cn(...inputs: ClassValue[]) {
 
 interface ButtonProps extends Omit<HTMLMotionProps<"button">, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "children"> {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'blue' | 'black';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'blue' | 'black' | 'red';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   fullWidth?: boolean;
 }
@@ -40,8 +40,9 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const variants = {
-    primary: 'bg-primary-green text-white shadow-[0_10px_30px_-10px_rgba(11,190,110,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(11,190,110,0.5)]',
-    blue: 'bg-primary-blue text-white shadow-[0_10px_30px_-10px_rgba(10,102,194,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(10,102,194,0.5)]',
+    primary: 'bg-primary-green text-white shadow-[0_10px_30px_-10px_rgba(255,92,0,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(255,92,0,0.5)]',
+    red: 'bg-[#d32f2f] text-white shadow-[0_10px_30px_-10px_rgba(211,47,47,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(211,47,47,0.5)]',
+    blue: 'bg-primary-blue text-white shadow-[0_10px_30px_-10px_rgba(255,176,0,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(255,176,0,0.5)]',
     secondary: 'bg-secondary-green text-primary-green hover:bg-primary-green hover:text-white',
     outline: 'border-2 border-primary-green text-primary-green hover:bg-primary-green hover:text-white',
     ghost: 'bg-transparent text-dark hover:bg-slate-100',

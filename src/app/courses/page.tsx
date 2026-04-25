@@ -8,7 +8,7 @@ import StudyModes from '@/components/home/StudyModes';
 
 export default function CoursesPage() {
   return (
-    <main>
+    <main className="pt-28 md:pt-36">
       <TopBanner />
       <Header />
       

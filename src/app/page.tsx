@@ -17,7 +17,7 @@ import AcademyStory from '@/components/about/AcademyStory';
 // Home page re-compile
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pt-28 md:pt-36">
       <TopBanner />
       <Header />
       <Hero />

@@ -6,7 +6,7 @@ import Contact from '@/components/home/Contact';
 
 export default function ContactPage() {
   return (
-    <main>
+    <main className="pt-28 md:pt-36">
       <TopBanner />
       <Header />
       

@@ -62,7 +62,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
   };
 
   return (
-    <main>
+    <main className="pt-28 md:pt-36">
       <TopBanner />
       <Header />
 

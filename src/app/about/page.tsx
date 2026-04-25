@@ -10,7 +10,7 @@ import { Target, Award } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="pt-28 md:pt-36">
       <TopBanner />
       <Header />
       
