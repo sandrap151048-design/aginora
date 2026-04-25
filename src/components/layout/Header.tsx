@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="fixed top-4 left-0 w-full z-50 px-4 pointer-events-none">
+      <div className="fixed top-[52px] left-0 w-full z-50 px-4 pointer-events-none">
         <motion.header 
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

@@ -63,7 +63,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Call Us</p>
-                  <p className="text-xl font-bold text-dark">+91 98765 43210</p>
+                  <a href="tel:+919876543210" className="text-xl font-bold text-dark hover:text-primary-green transition-colors">+91 98765 43210</a>
                 </div>
               </div>
 
@@ -73,7 +73,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Email Us</p>
-                  <p className="text-xl font-bold text-dark">info@ajinorahacademy.com</p>
+                  <a href="mailto:info@ajinorahacademy.com" className="text-xl font-bold text-dark hover:text-primary-green transition-colors">info@ajinorahacademy.com</a>
                 </div>
               </div>
 
@@ -83,7 +83,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Visit Us</p>
-                  <p className="text-xl font-bold text-dark">Lal Bahadur St, Kochi, Kerala</p>
+                  <a 
+                    href="https://maps.google.com/?q=Lal+Bahadur+St,+Kochi,+Kerala" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-xl font-bold text-dark hover:text-primary-green transition-colors"
+                  >
+                    Lal Bahadur St, Kochi, Kerala
+                  </a>
                 </div>
               </div>
             </div>

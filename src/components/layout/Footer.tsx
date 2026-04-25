@@ -66,15 +66,32 @@ const Footer = () => {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <MapPin className="text-primary-green shrink-0 mt-1" size={20} />
-                <span className="text-slate-400 font-bold leading-tight">123 Education Hub, Near Central Square, Kochi, Kerala</span>
+                <a 
+                  href="https://maps.google.com/?q=123+Education+Hub,+Near+Central+Square,+Kochi,+Kerala" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-slate-400 font-bold leading-tight hover:text-primary-green transition-colors"
+                >
+                  123 Education Hub, Near Central Square, Kochi, Kerala
+                </a>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="text-primary-green shrink-0" size={20} />
-                <span className="text-lg font-black">+91 98765 43210</span>
+                <a 
+                  href="tel:+919876543210" 
+                  className="text-lg font-black hover:text-primary-green transition-colors"
+                >
+                  +91 98765 43210
+                </a>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="text-primary-green shrink-0" size={20} />
-                <span className="text-slate-400 font-bold">info@ajinorah.com</span>
+                <a 
+                  href="mailto:info@ajinorah.com" 
+                  className="text-slate-400 font-bold hover:text-primary-green transition-colors"
+                >
+                  info@ajinorah.com
+                </a>
               </li>
             </ul>
           </div>
