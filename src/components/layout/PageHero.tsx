@@ -36,11 +36,11 @@ export default function PageHero({ title, subtitle, bgImage }: PageHeroProps) {
             Ajinorah Academy
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-inter text-white leading-tight drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-inter text-white leading-tight drop-shadow-lg">
             {title}
           </h1>
           
-          <p className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto font-medium font-inter drop-shadow-md leading-relaxed px-4">
+          <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto font-medium font-inter drop-shadow-md leading-relaxed px-4">
             {subtitle}
           </p>
         </motion.div>

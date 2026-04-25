@@ -11,6 +11,8 @@ export default function ResultsManagement() {
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: '', course: '', rank: '', image: '' });
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string>('');
 
   useEffect(() => {
     fetchResults();
@@ -45,7 +47,17 @@ export default function ResultsManagement() {
     setFormData({ name: result.name, course: result.course || '', rank: result.rank || '', image: result.image || '' });
     setEditId(result._id);
     setShowForm(true);
+    setImageFile(null);
+    setImagePreview(result.image || '');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setImageFile(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,16 +66,28 @@ export default function ResultsManagement() {
     const method = editId ? 'PUT' : 'POST';
 
     try {
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      let res;
+      if (imageFile) {
+        const fd = new FormData();
+        fd.append('name', formData.name);
+        fd.append('course', formData.course);
+        fd.append('rank', formData.rank);
+        fd.append('file', imageFile);
+        res = await fetch(url, { method, body: fd });
+      } else {
+        res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+      }
       if (res.ok) {
         toast.success(editId ? 'Result updated' : 'Result added');
         setShowForm(false);
         setEditId(null);
         setFormData({ name: '', course: '', rank: '', image: '' });
+        setImageFile(null);
+        setImagePreview('');
         fetchResults();
       } else {
         toast.error('Failed to save result');
@@ -84,6 +108,8 @@ export default function ResultsManagement() {
           setShowForm(true); 
           setEditId(null); 
           setFormData({ name: '', course: '', rank: '', image: '' });
+          setImageFile(null);
+          setImagePreview('');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }} className="relative bg-primary-green text-white px-12 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all text-sm min-w-[200px]">
           <div className="flex items-center justify-center gap-1">
@@ -105,8 +131,23 @@ export default function ResultsManagement() {
                 <input required type="text" placeholder="Student Name" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
                 <input required type="text" placeholder="Course (e.g. NEET 2024)" value={formData.course} onChange={e => setFormData({...formData, course: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
                 <input required type="text" placeholder="Rank (e.g. 124)" value={formData.rank} onChange={e => setFormData({...formData, rank: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
-                <input type="url" placeholder="Image URL (optional)" value={formData.image} onChange={e => setFormData({...formData, image: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-bold text-slate-500 px-2">Student Photo (optional)</label>
+                  <label className="w-full flex items-center gap-3 px-6 py-4 rounded-2xl bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors border-2 border-dashed border-slate-200 hover:border-primary-green">
+                    <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
+                    <span className="text-slate-400 text-sm flex-1">{imageFile ? imageFile.name : 'Click to choose image...'}</span>
+                  </label>
+                </div>
               </div>
+              {imagePreview && (
+                <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl">
+                  <img src={imagePreview} alt="Preview" className="h-20 w-20 object-cover rounded-xl border border-slate-200" />
+                  <div>
+                    <p className="text-sm font-bold text-dark">Image Preview</p>
+                    <button type="button" onClick={() => { setImageFile(null); setImagePreview(''); }} className="text-xs text-red-400 hover:text-red-600 mt-1">Remove</button>
+                  </div>
+                </div>
+              )}
               <Button type="submit">Save Result</Button>
             </form>
           </motion.div>

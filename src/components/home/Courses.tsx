@@ -43,12 +43,12 @@ const Courses = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-500 font-bold text-xs uppercase tracking-widest">
               Available Courses
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-dark tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-dark tracking-tight leading-tight">
               Level Up Your <br />
               <span className="text-primary-green">Career.</span>
             </h2>
           </div>
-          <p className="text-xl text-slate-500 font-medium max-w-sm mb-4">
+          <p className="text-lg text-slate-500 font-medium max-w-sm mb-4">
             Scientifically designed coaching programs tailored to ensure your success in medical & engineering entrance.
           </p>
         </div>

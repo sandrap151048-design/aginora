@@ -30,7 +30,7 @@ const AcademyIntro = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-7xl font-bold font-playfair text-dark leading-[1.15] md:leading-[1.25]"
+            className="text-3xl md:text-5xl font-bold font-playfair text-dark leading-[1.15] md:leading-[1.25]"
           >
             An Entrance Academy 
             <span className="inline-flex items-center align-middle mx-4">

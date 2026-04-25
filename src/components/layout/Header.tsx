@@ -36,15 +36,15 @@ const Header = () => {
         <motion.header 
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className={`container mx-auto max-w-6xl pointer-events-auto transition-all duration-500 rounded-2xl border bg-white shadow-xl ${
+          className={`container mx-auto max-w-6xl pointer-events-auto transition-all duration-500 rounded-xl border bg-white shadow-xl overflow-visible ${
             isScrolled 
-              ? 'border-slate-200 py-1 px-3' 
-              : 'border-slate-100 py-1.5 px-4'
+              ? 'border-slate-200 py-2 px-4 md:px-6' 
+              : 'border-slate-100 py-3 px-6 md:px-8'
           }`}
         >
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <img src="/logo-white-bg.png" alt="Ajinorah Academy" className="h-16 md:h-24 w-auto object-contain mix-blend-multiply" />
+            <Link href="/" className="flex items-center -my-4">
+              <img src="/logo-transparent-v2.png" alt="Ajinorah Academy" className="h-20 md:h-24 w-auto object-contain drop-shadow-sm" />
             </Link>
 
             {/* Desktop Menu */}

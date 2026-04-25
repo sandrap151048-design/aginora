@@ -16,7 +16,7 @@ const Footer = () => {
           {/* About Section */}
           <div>
             <div className="flex items-center mb-6">
-              <img src="/logo-dark-bg.png" alt="Ajinorah Academy" className="h-20 w-auto object-contain" />
+              <img src="/logo-transparent-white-text-v2.png" alt="Ajinorah Academy" className="h-20 md:h-24 w-auto object-contain" />
             </div>
             <p className="text-slate-400 mb-6 leading-relaxed">
               Leading entrance coaching institute for NEET, JEE, and KEAM. We provide quality education with a focus on conceptual clarity.
@@ -70,7 +70,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="text-primary-green shrink-0" size={20} />
-                <span className="text-xl font-black">+91 98765 43210</span>
+                <span className="text-lg font-black">+91 98765 43210</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="text-primary-green shrink-0" size={20} />

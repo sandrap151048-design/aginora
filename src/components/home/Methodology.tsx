@@ -39,20 +39,20 @@ const Methodology = () => {
             <div className="inline-block px-4 py-2 bg-primary-green/10 text-primary-green rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest">
               Our Methodology
             </div>
-            <h2 className="text-4xl md:text-6xl font-semibold text-dark leading-tight">
+            <h2 className="text-3xl md:text-5xl font-semibold text-dark leading-tight">
               How We Create <br />
               <span className="text-primary-green">Champions.</span>
             </h2>
-            <p className="text-xl text-slate-500 font-medium leading-relaxed">
+            <p className="text-lg text-slate-500 font-medium leading-relaxed">
               Ajinorah Academy isn't just about lectures. It's a scientific environment engineered to extract the maximum potential from every student.
             </p>
             <div className="grid grid-cols-2 gap-6">
                <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                  <h4 className="font-black text-3xl text-primary-green mb-1">12k+</h4>
+                  <h4 className="font-black text-2xl text-primary-green mb-1">12k+</h4>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Success Stories</p>
                </div>
                <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                  <h4 className="font-black text-3xl text-primary-blue mb-1">98%</h4>
+                  <h4 className="font-black text-2xl text-primary-blue mb-1">98%</h4>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Rank Ratio</p>
                </div>
             </div>

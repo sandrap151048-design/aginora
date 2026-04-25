@@ -40,7 +40,7 @@ const Centers = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-green/10 text-primary-green rounded-full text-[10px] font-black uppercase tracking-[0.2em]">
               Campus & Infrastructure
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-dark leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-dark leading-tight">
               Where <br />
               <span className="text-primary-green underline decoration-slate-100">Excellence</span> <br />
               Lives.

@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-dark tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-dark tracking-tight leading-tight">
               Why Students <span className="text-primary-blue">Trust</span> <br />
               Ajinorah Academy
             </h2>
@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
             </div>
             {/* Overlay Badge */}
             <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 w-32 h-32 md:w-48 md:h-48 bg-primary-green rounded-full flex flex-col items-center justify-center text-white p-4 md:p-6 text-center border-4 md:border-8 border-white animate-pulse shadow-2xl">
-              <p className="text-2xl md:text-4xl font-black">12+</p>
+              <p className="text-xl md:text-2xl font-black">12+</p>
               <p className="text-[10px] md:text-sm font-bold uppercase tracking-wider leading-tight">Years of Excellence</p>
             </div>
           </div>

@@ -60,9 +60,9 @@ const LoginPage = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="max-w-md w-full z-10"
       >
-        <div className="bg-white/80 backdrop-blur-xl p-10 md:p-14 rounded-[3.5rem] shadow-[0_32px_64px_-15px_rgba(0,0,0,0.05)] border border-white">
-            <div className="flex justify-center mb-0">
-              <img src="/logo-white-bg.png" alt="Ajinorah Academy" className="h-28 w-auto object-contain mix-blend-multiply" />
+        <div className="bg-white/80 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] shadow-[0_32px_64px_-15px_rgba(0,0,0,0.05)] border border-white">
+            <div className="flex justify-center mb-6">
+              <img src="/logo-transparent-v2.png" alt="Ajinorah Academy" className="h-20 md:h-24 w-auto object-contain" />
             </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">

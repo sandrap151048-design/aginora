@@ -36,12 +36,12 @@ const Hero = () => {
             Admissions Open 2024-25
           </div>
 
-          <h1 className="text-4xl md:text-7xl lg:text-[6rem] font-bold font-inter leading-tight text-white drop-shadow-xl">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-inter leading-tight text-white drop-shadow-xl">
             Shape Your <br />
             <span className="text-primary-green">Future</span>
           </h1>
 
-          <p className="text-lg md:text-2xl text-white max-w-2xl mx-auto font-bold font-inter drop-shadow-lg leading-relaxed">
+          <p className="text-base md:text-xl text-white max-w-2xl mx-auto font-bold font-inter drop-shadow-lg leading-relaxed">
             Excellence in entrance coaching for NEET, JEE, and KEAM. <br className="hidden md:block" /> 
             Join the community of 12,000+ successful students.
           </p>
