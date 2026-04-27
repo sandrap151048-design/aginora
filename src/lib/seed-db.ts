@@ -8,6 +8,7 @@ const courses = [
     duration: '1 Year (Residential)',
     fees: 'Contact for Fees',
     status: 'Active',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800',
     description: 'For students who are reappearing with a focused goal to secure top ranks. Intensive coaching for NEET & JEE with concept-focused teaching and daily problem-solving sessions.',
     eligibility: 'Class 12 Pass / Repeaters',
     syllabus: [
@@ -29,6 +30,7 @@ const courses = [
     duration: '2 Years',
     fees: 'Contact for Fees',
     status: 'Active',
+    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800',
     description: 'A complete academic + entrance preparation system under one roof. School curriculum + NEET/JEE coaching simultaneously.',
     eligibility: 'Class 10 Completed',
     syllabus: [
@@ -49,6 +51,7 @@ const courses = [
     duration: '1 Year / 2 Years',
     fees: 'Contact for Fees',
     status: 'Active',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800',
     description: 'Designed for higher secondary students aiming for strong board results and entrance success. Full syllabus coverage with parallel preparation for NEET/JEE.',
     eligibility: 'Class 11 / 12',
     syllabus: [
@@ -69,6 +72,7 @@ const courses = [
     duration: '1 – 5 Years',
     fees: 'Contact for Fees',
     status: 'Active',
+    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800',
     description: 'Build strong basics early for future competitive success. Concept clarity in Maths & Science, logical reasoning and problem-solving skills.',
     eligibility: 'Class 6, 7, 8, 9, 10',
     syllabus: [
@@ -89,6 +93,7 @@ const courses = [
     duration: 'Flexible',
     fees: 'Contact for Fees',
     status: 'Active',
+    image: 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800',
     description: 'Flexible learning for students who prefer studying from home. Live and recorded classes with subject-wise expert faculty.',
     eligibility: 'Class 6 – 12',
     syllabus: [
@@ -126,7 +131,7 @@ export async function seed() {
     await Course.insertMany(courses);
     await Gallery.insertMany(galleryItems);
     
-    console.log("✅ Seeding complete! 5 Courses + 6 Gallery items added.");
+    console.log("✅ Seeding complete! 5 Courses with images + 6 Gallery items added.");
   } catch (err) {
     console.error("❌ Seeding failed:", err);
     throw err;
