@@ -159,7 +159,7 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                     type="submit" 
                     fullWidth 
                     size="lg" 
-                    className="h-16 rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-green-500/20"
+                    className="h-20 md:h-16 rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-green-500/20"
                     disabled={loading}
                   >
                     {loading ? 'Submitting...' : 'Submit Application'}

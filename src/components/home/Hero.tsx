@@ -49,8 +49,8 @@ const Hero = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-12">
             <Button 
               onClick={openApplicationModal}
-              size="md" 
-              className="rounded-xl px-10 bg-primary-green hover:bg-white hover:text-dark transition-all duration-300 font-black text-sm uppercase tracking-widest shadow-2xl"
+              size="lg" 
+              className="rounded-xl px-12 bg-primary-green hover:bg-white hover:text-dark transition-all duration-300 font-black text-sm uppercase tracking-widest shadow-2xl h-16 md:h-14"
             >
               Apply Now
             </Button>

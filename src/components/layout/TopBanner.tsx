@@ -12,7 +12,7 @@ const TopBanner = () => {
     <motion.div 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 w-full bg-[#FF5C00] text-white py-2 px-4 md:px-12 flex items-center justify-between z-[60] text-[12px] font-medium"
+      className="fixed top-0 left-0 w-full bg-[#FF5C00] text-white py-3 px-4 md:px-12 flex items-center justify-between z-[60] text-[12px] font-medium min-h-[44px]"
     >
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
@@ -22,7 +22,7 @@ const TopBanner = () => {
         </div>
         <button 
           onClick={openApplicationModal}
-          className="bg-white text-[#FF5C00] px-3 py-0.5 rounded-full font-bold hover:bg-slate-100 transition-colors cursor-pointer shadow-sm"
+          className="bg-white text-[#FF5C00] px-4 py-1.5 rounded-full font-black text-xs uppercase tracking-wider hover:bg-slate-100 transition-colors cursor-pointer shadow-md"
         >
           Apply Now
         </button>
