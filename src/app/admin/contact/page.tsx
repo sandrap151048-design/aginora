@@ -16,7 +16,7 @@ export default function ContactManagementPage() {
 
   const fetchEnquiries = async () => {
     try {
-      const res = await fetch('/api/admin/enquiries');
+      const res = await fetch('/api/admin/enquiries', { cache: 'no-store' });
       const json = await res.json();
       if (json.success) setEnquiries(json.data);
     } catch (err) {
@@ -28,13 +28,17 @@ export default function ContactManagementPage() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this submission?')) return;
+    console.log("Deleting enquiry with ID:", id);
     try {
-      const res = await fetch(`/api/admin/enquiries/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/admin/enquiries/${id}`, { 
+        method: 'DELETE',
+        cache: 'no-store'
+      });
       const json = await res.json();
       
       if (json.success) {
         toast.success('Submission deleted');
-        fetchEnquiries();
+        await fetchEnquiries();
       } else {
         toast.error(json.error || 'Failed to delete submission');
       }

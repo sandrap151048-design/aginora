@@ -9,14 +9,20 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
     if (!id) return NextResponse.json({ success: false, error: 'ID is required' }, { status: 400 });
 
     console.log("Attempting to delete enquiry with ID:", id);
-    const result = await Enquiry.deleteOne({ _id: id });
-    console.log("Delete result:", result);
+    const deletedEnquiry = await Enquiry.findByIdAndDelete(id);
+    console.log("Deleted document:", deletedEnquiry);
 
-    if (result.deletedCount === 0) {
-      return NextResponse.json({ success: false, error: 'Submission not found or already deleted' }, { status: 404 });
+    if (!deletedEnquiry) {
+      return NextResponse.json(
+        { success: false, error: 'Submission not found or already deleted' }, 
+        { status: 404, headers: { 'Cache-Control': 'no-store' } }
+      );
     }
     
-    return NextResponse.json({ success: true, message: 'Deleted successfully' });
+    return NextResponse.json(
+      { success: true, message: 'Deleted successfully' },
+      { headers: { 'Cache-Control': 'no-store' } }
+    );
   } catch (error) {
     return NextResponse.json({ success: false, error: 'Failed to delete' }, { status: 500 });
   }
