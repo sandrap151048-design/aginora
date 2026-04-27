@@ -128,7 +128,7 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                           }
                         }}
                         className="w-full h-14 bg-slate-50 border border-slate-100 rounded-2xl px-6 font-medium focus:outline-none focus:border-primary-green transition-all"
-                        placeholder="10-digit Phone"
+                        placeholder="Phone Number"
                       />
                     </div>
                   </div>
