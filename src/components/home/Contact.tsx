@@ -138,7 +138,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-green focus:bg-white transition-all"
-                    placeholder="Enter your name (Max 35 chars)" 
+                    placeholder="Full Name" 
                     maxLength={35}
                   />
                 </div>

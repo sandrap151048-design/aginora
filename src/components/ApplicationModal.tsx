@@ -109,7 +109,7 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         className="w-full h-14 bg-slate-50 border border-slate-100 rounded-2xl px-6 font-medium focus:outline-none focus:border-primary-green transition-all"
-                        placeholder="Full Name (Max 35 chars)"
+                        placeholder="Full Name"
                         maxLength={35}
                       />
                     </div>
