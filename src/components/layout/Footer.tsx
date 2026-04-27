@@ -22,16 +22,16 @@ const Footer = () => {
               Leading entrance coaching institute for NEET, JEE, and KEAM. We provide quality education with a focus on conceptual clarity.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
+              <a href="https://www.facebook.com/ajinorah.ea" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
                 <SafeIcon Icon={Facebook} size={20} />
               </a>
-              <a href="#" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
+              <a href="https://www.instagram.com/ajinorah_entranceacademy" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
                 <SafeIcon Icon={Instagram} size={20} />
               </a>
-              <a href="#" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
+              <a href="https://www.youtube.com/@AjinorahEntranceAcademy" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
                 <SafeIcon Icon={Youtube} size={20} />
               </a>
-              <a href="#" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
+              <a href="https://www.linkedin.com/company/ajinorah-entrance-academy" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center transition-all hover:bg-primary-green hover:-translate-y-1">
                 <SafeIcon Icon={Linkedin} size={20} />
               </a>
             </div>

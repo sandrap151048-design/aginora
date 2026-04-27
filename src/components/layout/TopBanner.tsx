@@ -31,13 +31,13 @@ const TopBanner = () => {
       <div className="hidden md:flex items-center gap-4">
         <span className="text-white/80">Follow us:</span>
         <div className="flex items-center gap-3">
-          <Link href="https://facebook.com" target="_blank" className="hover:text-yellow-400 transition-colors">
+          <Link href="https://www.facebook.com/ajinorah.ea" target="_blank" className="hover:text-yellow-400 transition-colors">
             <Facebook size={14} />
           </Link>
-          <Link href="https://instagram.com" target="_blank" className="hover:text-yellow-400 transition-colors">
+          <Link href="https://www.instagram.com/ajinorah_entranceacademy" target="_blank" className="hover:text-yellow-400 transition-colors">
             <Instagram size={14} />
           </Link>
-          <Link href="https://youtube.com" target="_blank" className="hover:text-yellow-400 transition-colors">
+          <Link href="https://www.youtube.com/@AjinorahEntranceAcademy" target="_blank" className="hover:text-yellow-400 transition-colors">
             <Youtube size={14} />
           </Link>
         </div>
