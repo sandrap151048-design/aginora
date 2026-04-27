@@ -50,15 +50,50 @@ import toast from 'react-hot-toast';
 
 export default function CourseDetailPage({ params }: { params: { slug: string } }) {
   const { openApplicationModal } = useModal();
-  const course = coursesData.find((c) => c.slug === params.slug);
+  const [course, setCourse] = React.useState<any>(null);
+  const [loading, setLoading] = React.useState(true);
 
+  React.useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const res = await fetch(`/api/courses/${params.slug}`);
+        const json = await res.json();
+        if (json.success) {
+          setCourse(json.data);
+        } else {
+          // Fallback to static data if API fails or course not found in DB
+          const staticCourse = coursesData.find((c) => c.slug === params.slug);
+          if (staticCourse) {
+            setCourse({
+              ...staticCourse,
+              name: staticCourse.title, // Map title to name for consistency
+              description: staticCourse.longDesc // Map longDesc to description
+            });
+          }
+        }
+      } catch (err) {
+        console.error(err);
+        const staticCourse = coursesData.find((c) => c.slug === params.slug);
+        if (staticCourse) setCourse(staticCourse);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCourse();
+  }, [params.slug]);
+
+  if (loading) return <div className="pt-40 text-center">Loading course details...</div>;
   if (!course) {
     notFound();
   }
 
+  const title = course.name || course.title;
+  const shortDesc = course.description?.substring(0, 100) + '...' || course.shortDesc;
+  const longDesc = course.description || course.longDesc;
+
   const handleDownload = () => {
     window.open(`/brochures/${params.slug}.pdf`, '_blank');
-    toast.success(`${course.title} Brochure opened!`);
+    toast.success(`${title} Brochure opened!`);
   };
 
   return (
@@ -67,8 +102,8 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
       <Header />
 
       <PageHero 
-        title={course.title}
-        subtitle={course.shortDesc}
+        title={title}
+        subtitle={shortDesc}
         bgImage={courseImages[params.slug] || '/hero-banner.png'}
       />
 
@@ -81,7 +116,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-dark underline decoration-primary-green decoration-4 underline-offset-8">Course Overview</h2>
                 <p className="text-xl text-slate-500 font-medium leading-[1.8]">
-                  {course.longDesc}
+                  {longDesc}
                 </p>
               </div>
 
@@ -96,7 +131,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                       <GraduationCap className="text-primary-green" size={28} /> Syllabus
                     </h3>
                     <ul className="space-y-3 md:space-y-4">
-                      {course.syllabus.map((item, i) => (
+                      {course.syllabus?.map((item: string, i: number) => (
                         <li key={i} className="flex items-start gap-3 text-white/70 font-bold text-[10px] md:text-sm uppercase tracking-wide">
                           <ChevronRight size={18} className="text-primary-green shrink-0" /> {item}
                         </li>
@@ -114,7 +149,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                       <CheckCircle2 className="text-primary-blue" size={28} /> Features
                     </h3>
                     <ul className="space-y-3 md:space-y-4">
-                      {course.features.map((item, i) => (
+                      {course.features?.map((item: string, i: number) => (
                         <li key={i} className="flex items-start gap-3 text-white/70 font-bold text-[10px] md:text-sm uppercase tracking-wide">
                           <CheckCircle2 size={18} className="text-primary-blue shrink-0" /> {item}
                         </li>
@@ -140,11 +175,11 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                   <div className="space-y-6">
                     <div className="flex justify-between items-center pb-4 border-b border-white/20">
                       <span className="text-white/60 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2"><Clock size={16} /> Duration</span>
-                      <span className="font-bold text-white">{course.duration}</span>
+                      <span className="font-bold text-white">{course.duration || 'N/A'}</span>
                     </div>
                     <div className="flex justify-between items-center pb-4 border-b border-white/20">
                       <span className="text-white/60 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2"><GraduationCap size={16} /> Eligibility</span>
-                      <span className="font-bold text-white">{course.eligibility}</span>
+                      <span className="font-bold text-white">{course.eligibility || 'N/A'}</span>
                     </div>
                   </div>
                   <div className="space-y-4 pt-4">

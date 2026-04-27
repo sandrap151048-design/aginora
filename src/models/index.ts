@@ -29,9 +29,13 @@ export const Student = mongoose.models.Student || mongoose.model("Student", Stud
 // Course Model
 const CourseSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  slug: { type: String, required: true, unique: true },
   description: { type: String },
   duration: { type: String },
+  eligibility: { type: String },
   fees: { type: String },
+  syllabus: [{ type: String }],
+  features: [{ type: String }],
   status: { type: String, default: 'Active' },
   icon: { type: String },
 });

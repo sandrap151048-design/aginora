@@ -10,7 +10,17 @@ export default function CoursesPage() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
-  const [formData, setFormData] = useState({ name: '', duration: '', fees: '', status: 'Active', description: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    duration: '', 
+    fees: '', 
+    status: 'Active', 
+    description: '',
+    eligibility: '',
+    syllabus: '',
+    features: '',
+    slug: ''
+  });
 
   useEffect(() => {
     fetchCourses();
@@ -47,7 +57,11 @@ export default function CoursesPage() {
       duration: course.duration || '', 
       fees: course.fees || '', 
       status: course.status || 'Active', 
-      description: course.description || '' 
+      description: course.description || '',
+      eligibility: course.eligibility || '',
+      syllabus: course.syllabus?.join(', ') || '',
+      features: course.features?.join(', ') || '',
+      slug: course.slug || ''
     });
     setEditId(course._id);
     setShowForm(true);
@@ -59,16 +73,32 @@ export default function CoursesPage() {
     const method = editId ? 'PUT' : 'POST';
 
     try {
+      const payload = {
+        ...formData,
+        syllabus: formData.syllabus.split(',').map(s => s.trim()).filter(s => s !== ''),
+        features: formData.features.split(',').map(f => f.trim()).filter(f => f !== '')
+      };
+
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         toast.success(editId ? 'Course updated' : 'Course added');
         setShowForm(false);
         setEditId(null);
-        setFormData({ name: '', duration: '', fees: '', status: 'Active', description: '' });
+        setFormData({ 
+          name: '', 
+          duration: '', 
+          fees: '', 
+          status: 'Active', 
+          description: '',
+          eligibility: '',
+          syllabus: '',
+          features: '',
+          slug: ''
+        });
         fetchCourses();
       } else {
         const json = await res.json();
@@ -89,7 +119,17 @@ export default function CoursesPage() {
         <Button onClick={() => { 
           setShowForm(true); 
           setEditId(null); 
-          setFormData({ name: '', duration: '', fees: '', status: 'Active', description: '' });
+          setFormData({ 
+            name: '', 
+            duration: '', 
+            fees: '', 
+            status: 'Active', 
+            description: '',
+            eligibility: '',
+            syllabus: '',
+            features: '',
+            slug: ''
+          });
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }} className="relative bg-primary-green text-white px-12 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all text-sm min-w-[200px]">
           <div className="flex items-center justify-center gap-1">
@@ -108,13 +148,29 @@ export default function CoursesPage() {
               </button>
               <h2 className="text-xl font-bold text-dark">{editId ? 'Edit Course' : 'Add New Course'}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input required type="text" placeholder="Course Name" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
+                <input 
+                  required 
+                  type="text" 
+                  placeholder="Course Name" 
+                  value={formData.name} 
+                  onChange={e => {
+                    const name = e.target.value;
+                    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                    setFormData({...formData, name, slug});
+                  }} 
+                  className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" 
+                />
                 <input type="text" placeholder="Duration (e.g. 1 Year)" value={formData.duration} onChange={e => setFormData({...formData, duration: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
                 <input type="text" placeholder="Fees (e.g. ₹ 45,000)" value={formData.fees} onChange={e => setFormData({...formData, fees: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
+                <input type="text" placeholder="Eligibility (e.g. Class 11 / 12)" value={formData.eligibility} onChange={e => setFormData({...formData, eligibility: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green" />
                 <select value={formData.status} onChange={e => setFormData({...formData, status: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green">
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
                 </select>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <textarea placeholder="Syllabus (comma separated: Math, Physics...)" rows={2} value={formData.syllabus} onChange={e => setFormData({...formData, syllabus: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green resize-none"></textarea>
+                <textarea placeholder="Features (comma separated: Study Material, Tests...)" rows={2} value={formData.features} onChange={e => setFormData({...formData, features: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green resize-none"></textarea>
               </div>
               <textarea placeholder="Description" rows={3} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary-green resize-none"></textarea>
               <Button type="submit">Save Course</Button>
@@ -151,7 +207,22 @@ export default function CoursesPage() {
                 <Tag size={16} className="text-primary-green shrink-0" />
                 <span>Fees: {course.fees || 'N/A'}</span>
               </div>
+              <div className="flex items-center gap-3 text-sm font-medium text-slate-600">
+                <BookOpen size={16} className="text-orange-500 shrink-0" />
+                <span>Eligibility: {course.eligibility || 'N/A'}</span>
+              </div>
             </div>
+
+            {course.syllabus && course.syllabus.length > 0 && (
+              <div className="mt-4 pt-4 border-t border-slate-50">
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Syllabus</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {course.syllabus.map((s: string, i: number) => (
+                    <span key={i} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md">{s}</span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="mt-8">
               <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${course.status === 'Active' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
