@@ -93,7 +93,7 @@ const courses = [
     duration: 'Flexible',
     fees: 'Contact for Fees',
     status: 'Active',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800',
+    image: 'https://boardingadmission.com/exam/mainlogin/assets/img/blog/3.jpg',
     description: 'Flexible learning for students who prefer studying from home. Live and recorded classes with subject-wise expert faculty.',
     eligibility: 'Class 6 – 12',
     syllabus: [

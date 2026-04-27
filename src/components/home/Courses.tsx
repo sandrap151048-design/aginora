@@ -6,7 +6,7 @@ import Button from '../ui/Button';
 import { ArrowUpRight, BookOpen, Download } from 'lucide-react';
 
 const defaultCourses = [
-  { _id: '1', name: 'Online Tuition Program', duration: 'Flexible', fees: 'Contact for Fees', status: 'Active', description: 'Flexible learning for students who prefer studying from home.', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800' },
+  { _id: '1', name: 'Online Tuition Program', duration: 'Flexible', fees: 'Contact for Fees', status: 'Active', description: 'Flexible learning for students who prefer studying from home.', image: 'https://boardingadmission.com/exam/mainlogin/assets/img/blog/3.jpg' },
   { _id: '2', name: 'Foundation Program', duration: '1 – 5 Years', fees: 'Contact for Fees', status: 'Active', description: 'Build strong basics early for future competitive success.', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800' },
   { _id: '3', name: 'Plus One & Plus Two Tuition + Entrance Coaching', duration: '1 Year / 2 Years', fees: 'Contact for Fees', status: 'Active', description: 'Designed for higher secondary students aiming for strong board results.', image: 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800' },
   { _id: '4', name: 'Integrated Schooling Program', duration: '2 Years', fees: 'Contact for Fees', status: 'Active', description: 'A complete academic + entrance preparation system under one roof.', image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800' },
@@ -63,14 +63,14 @@ const Courses = () => {
                 const n = (name || '').toUpperCase();
                 if (n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800';
                 if (n.includes('INTEGRATED')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
-                if (n.includes('PLUS') || n.includes('TUITION') && !n.includes('ONLINE')) return 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800';
+                if (n.includes('PLUS') || n.includes('TUITION') && !n.includes('ONLINE')) return 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800';
                 if (n.includes('FOUNDATION')) return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800';
-                if (n.includes('ONLINE') || n.includes('DIGITAL')) return 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
+                if (n.includes('ONLINE') || n.includes('DIGITAL')) return 'https://boardingadmission.com/exam/mainlogin/assets/img/blog/3.jpg';
                 return `https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&sig=${index}`;
               };
 
-              const courseImage = (course.image && course.image.trim().length > 0) 
-                ? course.image 
+              const courseImage = (course.image && course.image.trim().length > 0)
+                ? course.image
                 : getCourseImage(course.name);
 
               return (
@@ -84,8 +84,8 @@ const Courses = () => {
                 >
                   {/* Top Image Section */}
                   <div className="h-64 relative overflow-hidden shrink-0">
-                    <img 
-                      src={courseImage} 
+                    <img
+                      src={courseImage}
                       alt={course.name}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
@@ -94,7 +94,7 @@ const Courses = () => {
                     />
                     {/* Optional Badge */}
                     <div className="absolute top-4 right-4 z-10 px-4 py-1.5 bg-primary-green text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
-                       {course.name.includes('Online') ? 'Online' : 'Offline'}
+                      {course.name.includes('Online') ? 'Online' : 'Offline'}
                     </div>
                   </div>
 
@@ -108,7 +108,7 @@ const Courses = () => {
                         {course.description || "Premium coaching program designed for top-rank success."}
                       </p>
                     </div>
-                    
+
                     <div className="pt-8 mt-auto">
                       {(() => {
                         const n = course.name.toUpperCase();
