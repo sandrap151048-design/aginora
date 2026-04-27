@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import AdminSidebar from '@/components/admin/AdminSidebar';
-import { Toaster } from 'react-hot-toast';
 import { Bell, Search, Menu } from 'lucide-react';
 
 export default function AdminLayout({
@@ -17,7 +16,6 @@ export default function AdminLayout({
   if (isLoginPage) {
     return (
       <>
-        <Toaster position="top-right" />
         {children}
       </>
     );
@@ -61,7 +59,6 @@ export default function AdminLayout({
 
         {/* Content Area */}
         <main className="flex-1 overflow-y-auto p-4 lg:p-10">
-          <Toaster position="top-right" />
           <div className="max-w-[1600px] mx-auto">
             {children}
           </div>
