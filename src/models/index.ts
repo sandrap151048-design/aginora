@@ -38,6 +38,7 @@ const CourseSchema = new mongoose.Schema({
   features: [{ type: String }],
   status: { type: String, default: 'Active' },
   icon: { type: String },
+  image: { type: String },
 });
 
 export const Course = mongoose.models.Course || mongoose.model("Course", CourseSchema);
