@@ -8,9 +8,12 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
     const { id } = await params;
     if (!id) return NextResponse.json({ success: false, error: 'ID is required' }, { status: 400 });
 
-    const deletedEnquiry = await Enquiry.findByIdAndDelete(id);
-    if (!deletedEnquiry) {
-      return NextResponse.json({ success: false, error: 'Submission not found' }, { status: 404 });
+    console.log("Attempting to delete enquiry with ID:", id);
+    const result = await Enquiry.deleteOne({ _id: id });
+    console.log("Delete result:", result);
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json({ success: false, error: 'Submission not found or already deleted' }, { status: 404 });
     }
     
     return NextResponse.json({ success: true, message: 'Deleted successfully' });

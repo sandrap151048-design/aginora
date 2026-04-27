@@ -30,9 +30,13 @@ export default function ContactManagementPage() {
     if (!confirm('Are you sure you want to delete this submission?')) return;
     try {
       const res = await fetch(`/api/admin/enquiries/${id}`, { method: 'DELETE' });
-      if (res.ok) {
+      const json = await res.json();
+      
+      if (json.success) {
         toast.success('Submission deleted');
         fetchEnquiries();
+      } else {
+        toast.error(json.error || 'Failed to delete submission');
       }
     } catch (err) {
       toast.error('Failed to delete submission');
