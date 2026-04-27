@@ -123,7 +123,7 @@ const Courses = () => {
                         return (
                           <Link href={slug ? `/courses/${slug}` : '/courses'}>
                             <button className="bg-primary-green text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-dark transition-all duration-300 shadow-md hover:shadow-lg">
-                              Join Now
+                              Course Details
                             </button>
                           </Link>
                         );
