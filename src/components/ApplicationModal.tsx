@@ -23,6 +23,12 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (formData.phone.length !== 10) {
+      toast.error('Please enter a valid 10-digit phone number');
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch('/api/applications', {
@@ -113,10 +119,16 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                       <input 
                         required
                         type="tel" 
+                        maxLength={10}
                         value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, '');
+                          if (value.length <= 10) {
+                            setFormData({...formData, phone: value});
+                          }
+                        }}
                         className="w-full h-14 bg-slate-50 border border-slate-100 rounded-2xl px-6 font-medium focus:outline-none focus:border-primary-green transition-all"
-                        placeholder="Your Phone"
+                        placeholder="10-digit Phone"
                       />
                     </div>
                   </div>

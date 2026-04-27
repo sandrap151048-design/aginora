@@ -16,11 +16,25 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === 'phone') {
+      const numericValue = value.replace(/\D/g, '');
+      if (numericValue.length <= 10) {
+        setFormData({ ...formData, [name]: numericValue });
+      }
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (formData.phone.length !== 10) {
+      toast.error('Please enter a valid 10-digit phone number');
+      return;
+    }
+
     setLoading(true);
     
     try {
@@ -133,10 +147,11 @@ const Contact = () => {
                     type="tel" 
                     name="phone"
                     required
+                    maxLength={10}
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-green focus:bg-white transition-all"
-                    placeholder="Phone number" 
+                    placeholder="10-digit Phone" 
                   />
                 </div>
               </div>
