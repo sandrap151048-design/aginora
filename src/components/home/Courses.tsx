@@ -62,9 +62,9 @@ const Courses = () => {
             {courses.map((course, index) => {
               const getCourseImage = (name: string) => {
                 const n = (name || '').toUpperCase();
-                if (n.includes('NEET') || n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800';
-                if (n.includes('JEE') || n.includes('PLUS')) return 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800';
-                if (n.includes('INTEGRATED') || n.includes('SCHOOLING')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
+                if (n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800';
+                if (n.includes('INTEGRATED')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
+                if (n.includes('PLUS ONE') || n.includes('PLUS TWO')) return 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800';
                 if (n.includes('FOUNDATION')) return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800';
                 if (n.includes('ONLINE') || n.includes('TUITION')) return 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
                 return `https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&sig=${index}`;
@@ -81,9 +81,10 @@ const Courses = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full relative"
+                  className="group relative h-[450px] rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
                 >
-                  <div className="h-56 relative overflow-hidden shrink-0">
+                  {/* Background Image */}
+                  <div className="absolute inset-0 z-0">
                     <img 
                       src={courseImage} 
                       alt={course.name}
@@ -92,32 +93,35 @@ const Courses = () => {
                       }}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-5 left-5 px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full shadow-sm">
-                       <span className="text-[10px] font-black uppercase tracking-[0.15em] text-primary-green">
-                         {course.name.includes('Online') ? 'Digital' : 'Campus'}
-                       </span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
                   </div>
-                  
-                  <div className="p-8 flex flex-col flex-1">
-                    <div className="flex-1 space-y-4">
-                      <div className="flex items-center gap-2 mb-1">
+
+                  {/* Top Badge */}
+                  <div className="absolute top-6 left-6 z-20 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+                     <span className="text-[10px] font-black uppercase tracking-[0.15em] text-white">
+                       {course.name.includes('Online') ? 'Digital Learning' : 'Campus Program'}
+                     </span>
+                  </div>
+
+                  {/* Content Overlay */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-8 flex flex-col justify-end h-full">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2">
                         <div className="w-8 h-1 bg-primary-green rounded-full group-hover:w-16 transition-all duration-500" />
                       </div>
-                      <h3 className="text-xl font-black text-dark tracking-tight leading-[1.2] group-hover:text-primary-green transition-colors min-h-[3rem] flex items-center">
+                      <h3 className="text-2xl font-black text-white tracking-tight leading-[1.1]">
                         {course.name}
                       </h3>
-                      <p className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">
+                      <p className="text-xs text-white/70 font-medium leading-relaxed line-clamp-2">
                         {course.description || "Premium coaching program designed for top-rank success."}
                       </p>
                     </div>
                     
-                    <div className="pt-8 mt-auto flex items-center justify-between border-t border-slate-50">
+                    <div className="pt-6 mt-6 flex items-center justify-between border-t border-white/10">
                       <div className="flex flex-col">
-                        <span className="text-[9px] text-slate-400 font-black uppercase tracking-[0.2em] mb-1">Duration</span>
-                        <div className="px-3 py-1 bg-slate-50 rounded-lg inline-flex items-center">
-                          <span className="text-[11px] font-black text-dark">{course.duration || 'Flexible'}</span>
+                        <span className="text-[9px] text-white/40 font-black uppercase tracking-[0.2em] mb-1">Duration</span>
+                        <div className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg inline-flex items-center">
+                          <span className="text-[11px] font-black text-white">{course.duration || 'Flexible'}</span>
                         </div>
                       </div>
                       
@@ -132,7 +136,7 @@ const Courses = () => {
 
                         return (
                           <Link href={slug ? `/courses/${slug}` : '/courses'}>
-                            <button className="w-12 h-12 rounded-2xl bg-dark text-white flex items-center justify-center hover:bg-primary-green transition-all duration-300 group/btn shadow-lg shadow-dark/10 hover:shadow-primary-green/20">
+                            <button className="w-12 h-12 rounded-2xl bg-primary-green text-dark flex items-center justify-center hover:bg-white transition-all duration-300 group/btn shadow-lg shadow-primary-green/20">
                               <ArrowUpRight size={20} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                             </button>
                           </Link>

@@ -42,8 +42,8 @@ const Hero = () => {
           </h1>
 
           <p className="text-base md:text-xl text-white max-w-2xl mx-auto font-bold font-inter drop-shadow-lg leading-relaxed">
-            Excellence in entrance coaching for NEET, JEE, and KEAM. <br className="hidden md:block" /> 
-            Join the community of 12,000+ successful students.
+            Excellence in entrance coaching and academic tuition. <br className="hidden md:block" /> 
+            Empowering students to achieve their academic goals.
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4 pt-12">
