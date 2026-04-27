@@ -104,7 +104,7 @@ const Courses = () => {
                       <h3 className="text-2xl font-bold text-primary-green tracking-tight leading-tight">
                         {course.name}
                       </h3>
-                      <p className="text-slate-600 font-medium leading-relaxed line-clamp-3 text-sm">
+                      <p className="text-slate-600 font-medium leading-relaxed text-sm">
                         {course.description || "Premium coaching program designed for top-rank success."}
                       </p>
                     </div>
