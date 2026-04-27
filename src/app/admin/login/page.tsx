@@ -78,7 +78,6 @@ const LoginPage = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="w-full pl-16 pr-6 py-5 rounded-[1.8rem] bg-slate-50 border-2 border-transparent text-dark placeholder:text-slate-300 focus:outline-none focus:border-slate-100 focus:bg-white transition-all font-semibold shadow-sm"
-                  placeholder="admin@ajinorah.com" 
                 />
               </div>
             </div>
@@ -95,7 +94,6 @@ const LoginPage = () => {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   className="w-full pl-16 pr-16 py-5 rounded-[1.8rem] bg-slate-50 border-2 border-transparent text-dark placeholder:text-slate-300 focus:outline-none focus:border-slate-100 focus:bg-white transition-all font-semibold shadow-sm"
-                  placeholder="••••••••" 
                 />
                 <button 
                   type="button"
