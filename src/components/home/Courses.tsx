@@ -13,11 +13,17 @@ const defaultCourses = [
   { _id: '5', name: 'Repeaters Batch', duration: '1 Year (Residential)', fees: 'Contact for Fees', status: 'Active', description: 'For students who are reappearing with a focused goal to secure top ranks.', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800' },
 ];
 
-const Courses = () => {
-  const [courses, setCourses] = useState<any[]>(defaultCourses);
-  const [loading, setLoading] = useState(true);
+interface CoursesProps {
+  initialCourses?: any[];
+}
+
+const Courses = ({ initialCourses }: CoursesProps) => {
+  const [courses, setCourses] = useState<any[]>(initialCourses || defaultCourses);
+  const [loading, setLoading] = useState(!initialCourses);
 
   useEffect(() => {
+    if (initialCourses) return;
+    
     const fetchCourses = async () => {
       try {
         const res = await fetch('/api/admin/courses?t=' + Date.now());
@@ -32,7 +38,7 @@ const Courses = () => {
       }
     };
     fetchCourses();
-  }, []);
+  }, [initialCourses]);
 
   return (
     <section id="courses" className="py-16 bg-white overflow-hidden">

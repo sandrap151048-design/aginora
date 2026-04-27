@@ -1,4 +1,3 @@
-"use client";
 import TopBanner from '@/components/layout/TopBanner';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/home/Hero';
@@ -13,9 +12,23 @@ import Contact from '@/components/home/Contact';
 import Footer from '@/components/layout/Footer';
 import FloatingElements from '@/components/ui/FloatingElements';
 import AcademyStory from '@/components/about/AcademyStory';
+import { Course } from '@/models/index';
+import dbConnect from '@/lib/db';
 
-// Home page re-compile
-export default function Home() {
+async function getCourses() {
+  try {
+    await dbConnect();
+    const courses = await Course.find({ status: 'Active' }).sort({ createdAt: -1 }).lean();
+    return JSON.parse(JSON.stringify(courses));
+  } catch (error) {
+    console.error("Home Courses Fetch Error:", error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const initialCourses = await getCourses();
+
   return (
     <main className="min-h-screen pt-28 md:pt-36">
       <TopBanner />
@@ -23,7 +36,7 @@ export default function Home() {
       <Hero />
       <AcademyIntro />
       <AcademyStory />
-      <Courses />
+      <Courses initialCourses={initialCourses} />
       <Methodology />
       <WhyChooseUs />
       <Centers />

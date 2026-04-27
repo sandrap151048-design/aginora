@@ -7,7 +7,23 @@ import Link from 'next/link';
 import StudyModes from '@/components/home/StudyModes';
 
 
-export default function CoursesPage() {
+import { Course } from '@/models/index';
+import dbConnect from '@/lib/db';
+
+async function getCourses() {
+  try {
+    await dbConnect();
+    const courses = await Course.find({ status: 'Active' }).sort({ createdAt: -1 }).lean();
+    return JSON.parse(JSON.stringify(courses));
+  } catch (error) {
+    console.error("Fetch Courses Error:", error);
+    return [];
+  }
+}
+
+export default async function CoursesPage() {
+  const initialCourses = await getCourses();
+
   return (
     <main className="pt-28 md:pt-36">
       <TopBanner />
@@ -19,7 +35,7 @@ export default function CoursesPage() {
         bgImage="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070"
       />
 
-      <Courses />
+      <Courses initialCourses={initialCourses} />
       
       <StudyModes />
 
