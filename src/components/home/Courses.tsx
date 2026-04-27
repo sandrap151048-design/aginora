@@ -64,9 +64,9 @@ const Courses = () => {
                 const n = (name || '').toUpperCase();
                 if (n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800';
                 if (n.includes('INTEGRATED')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
-                if (n.includes('PLUS ONE') || n.includes('PLUS TWO')) return 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800';
+                if (n.includes('PLUS') || n.includes('TUITION') && !n.includes('ONLINE')) return 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800';
                 if (n.includes('FOUNDATION')) return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800';
-                if (n.includes('ONLINE') || n.includes('TUITION')) return 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
+                if (n.includes('ONLINE') || n.includes('DIGITAL')) return 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
                 return `https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&sig=${index}`;
               };
 
