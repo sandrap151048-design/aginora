@@ -81,50 +81,36 @@ const Courses = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative h-[450px] rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+                  className="group bg-white rounded-[2rem] overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                 >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 z-0">
+                  {/* Top Image Section */}
+                  <div className="h-64 relative overflow-hidden shrink-0">
                     <img 
                       src={courseImage} 
                       alt={course.name}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
                       }}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
+                    {/* Optional Badge */}
+                    <div className="absolute top-4 right-4 z-10 px-4 py-1.5 bg-primary-green text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
+                       {course.name.includes('Online') ? 'Online' : 'Offline'}
+                    </div>
                   </div>
 
-                  {/* Top Badge */}
-                  <div className="absolute top-6 left-6 z-20 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
-                     <span className="text-[10px] font-black uppercase tracking-[0.15em] text-white">
-                       {course.name.includes('Online') ? 'Digital Learning' : 'Campus Program'}
-                     </span>
-                  </div>
-
-                  {/* Content Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 z-10 p-8 flex flex-col justify-end h-full">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-1 bg-primary-green rounded-full group-hover:w-16 transition-all duration-500" />
-                      </div>
-                      <h3 className="text-2xl font-black text-white tracking-tight leading-[1.1]">
+                  {/* Content Section */}
+                  <div className="p-6 md:p-8 flex flex-col flex-1">
+                    <div className="flex-1 space-y-4">
+                      <h3 className="text-2xl font-bold text-primary-green tracking-tight leading-tight">
                         {course.name}
                       </h3>
-                      <p className="text-xs text-white/70 font-medium leading-relaxed line-clamp-2">
+                      <p className="text-slate-600 font-medium leading-relaxed line-clamp-3 text-sm">
                         {course.description || "Premium coaching program designed for top-rank success."}
                       </p>
                     </div>
                     
-                    <div className="pt-6 mt-6 flex items-center justify-between border-t border-white/10">
-                      <div className="flex flex-col">
-                        <span className="text-[9px] text-white/40 font-black uppercase tracking-[0.2em] mb-1">Duration</span>
-                        <div className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg inline-flex items-center">
-                          <span className="text-[11px] font-black text-white">{course.duration || 'Flexible'}</span>
-                        </div>
-                      </div>
-                      
+                    <div className="pt-8 mt-auto">
                       {(() => {
                         const n = course.name.toUpperCase();
                         let slug = '';
@@ -136,8 +122,8 @@ const Courses = () => {
 
                         return (
                           <Link href={slug ? `/courses/${slug}` : '/courses'}>
-                            <button className="w-12 h-12 rounded-2xl bg-primary-green text-dark flex items-center justify-center hover:bg-white transition-all duration-300 group/btn shadow-lg shadow-primary-green/20">
-                              <ArrowUpRight size={20} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                            <button className="bg-primary-green text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-dark transition-all duration-300 shadow-md hover:shadow-lg">
+                              Join Now
                             </button>
                           </Link>
                         );
