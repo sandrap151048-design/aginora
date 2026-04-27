@@ -21,7 +21,7 @@ const Courses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('/api/admin/courses');
+        const res = await fetch('/api/admin/courses?t=' + Date.now());
         const json = await res.json();
         if (json.success && json.data.length > 0) {
           setCourses(json.data.filter((c: any) => c.status === 'Active'));
