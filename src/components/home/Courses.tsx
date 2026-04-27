@@ -6,12 +6,11 @@ import Button from '../ui/Button';
 import { ArrowUpRight, BookOpen, Download } from 'lucide-react';
 
 const defaultCourses = [
-  { _id: '1', name: 'NEET Coaching', duration: '1 Year', fees: '₹ 1,45,000', status: 'Active', description: 'Intensive medical entrance prep', image: '' },
-  { _id: '2', name: 'JEE Coaching', duration: '1 Year', fees: '₹ 1,45,000', status: 'Active', description: 'Engineering entrance prep', image: '' },
-  { _id: '3', name: 'KEAM Coaching', duration: '1 Year', fees: '₹ 1,35,000', status: 'Active', description: 'Kerala entrance prep', image: '' },
-  { _id: '4', name: 'Integrated Schooling', duration: '2 Years', fees: '₹ 1,80,000', status: 'Active', description: 'Schooling + Entrance', image: '' },
-  { _id: '5', name: 'Repeaters Batch', duration: '1 Year', fees: '₹ 1,50,000', status: 'Active', description: 'Dedicated NEET/JEE repeaters', image: '' },
-  { _id: '6', name: 'Foundation Course', duration: '2 Years', fees: '₹ 25,000', status: 'Active', description: 'Pre-entrance orientation for 8th-10th', image: '' },
+  { _id: '1', name: 'Online Tuition Program', duration: 'Flexible', fees: 'Contact for Fees', status: 'Active', description: 'Flexible learning for students who prefer studying from home.', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800' },
+  { _id: '2', name: 'Foundation Program', duration: '1 – 5 Years', fees: 'Contact for Fees', status: 'Active', description: 'Build strong basics early for future competitive success.', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800' },
+  { _id: '3', name: 'Plus One & Plus Two Tuition + Entrance Coaching', duration: '1 Year / 2 Years', fees: 'Contact for Fees', status: 'Active', description: 'Designed for higher secondary students aiming for strong board results.', image: 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800' },
+  { _id: '4', name: 'Integrated Schooling Program', duration: '2 Years', fees: 'Contact for Fees', status: 'Active', description: 'A complete academic + entrance preparation system under one roof.', image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800' },
+  { _id: '5', name: 'Repeaters Batch', duration: '1 Year (Residential)', fees: 'Contact for Fees', status: 'Active', description: 'For students who are reappearing with a focused goal to secure top ranks.', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800' },
 ];
 
 const Courses = () => {
