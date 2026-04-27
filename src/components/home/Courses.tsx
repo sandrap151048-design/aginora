@@ -38,7 +38,7 @@ const Courses = () => {
   return (
     <section id="courses" className="py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-10 mb-20">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-20">
           <div className="space-y-6 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-500 font-bold text-xs uppercase tracking-widest">
               Available Courses

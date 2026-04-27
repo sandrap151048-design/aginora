@@ -18,16 +18,6 @@ const FloatingElements = () => {
       >
         <MessageCircle size={32} />
       </motion.a>
-
-      {/* Sticky Apply Button (Alternative style) */}
-      <motion.button
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-        className="md:hidden w-16 h-16 bg-primary-green text-white rounded-full flex items-center justify-center shadow-2xl transition-all"
-      >
-        <Zap size={32} />
-      </motion.button>
     </div>
   );
 };
