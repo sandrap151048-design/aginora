@@ -62,12 +62,11 @@ const Courses = () => {
             {courses.map((course, index) => {
               const getCourseImage = (name: string) => {
                 const n = (name || '').toUpperCase();
-                if (n.includes('NEET')) return 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800';
-                if (n.includes('JEE')) return 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800';
-                if (n.includes('KEAM')) return 'https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=800';
+                if (n.includes('NEET') || n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800';
+                if (n.includes('JEE') || n.includes('PLUS')) return 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800';
+                if (n.includes('INTEGRATED') || n.includes('SCHOOLING')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
                 if (n.includes('FOUNDATION')) return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800';
-                if (n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800';
-                if (n.includes('INTEGRATED') || n.includes('SCHOOLING') || n.includes('PLUS TWO')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
+                if (n.includes('ONLINE') || n.includes('TUITION')) return 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
                 return `https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&sig=${index}`;
               };
 
@@ -82,58 +81,68 @@ const Courses = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                  className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full relative"
                 >
-                  <div className="h-44 relative overflow-hidden shrink-0">
+                  <div className="h-56 relative overflow-hidden shrink-0">
                     <img 
                       src={courseImage} 
                       alt={course.name}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
                       }}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500" />
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-primary-green">
-                       {course.name.includes('NEET') || course.name.includes('JEE') ? 'Entrance' : 'Program'}
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-5 left-5 px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full shadow-sm">
+                       <span className="text-[10px] font-black uppercase tracking-[0.15em] text-primary-green">
+                         {course.name.includes('Online') ? 'Digital' : 'Campus'}
+                       </span>
                     </div>
                   </div>
                   
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex-1 space-y-3">
-                      <h3 className="text-lg font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors">
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="flex-1 space-y-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-8 h-1 bg-primary-green rounded-full group-hover:w-16 transition-all duration-500" />
+                      </div>
+                      <h3 className="text-xl font-black text-dark tracking-tight leading-[1.2] group-hover:text-primary-green transition-colors min-h-[3rem] flex items-center">
                         {course.name}
                       </h3>
-                      <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-                        {course.description || "Comprehensive coaching program designed for top-rank success."}
+                      <p className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">
+                        {course.description || "Premium coaching program designed for top-rank success."}
                       </p>
                     </div>
                     
-                    <div className="pt-6 mt-auto">
+                    <div className="pt-8 mt-auto flex items-center justify-between border-t border-slate-50">
+                      <div className="flex flex-col">
+                        <span className="text-[9px] text-slate-400 font-black uppercase tracking-[0.2em] mb-1">Duration</span>
+                        <div className="px-3 py-1 bg-slate-50 rounded-lg inline-flex items-center">
+                          <span className="text-[11px] font-black text-dark">{course.duration || 'Flexible'}</span>
+                        </div>
+                      </div>
+                      
                       {(() => {
                         const n = course.name.toUpperCase();
                         let slug = '';
-                        if (n.includes('NEET')) slug = 'neet-coaching';
-                        else if (n.includes('JEE')) slug = 'jee-coaching';
-                        else if (n.includes('KEAM')) slug = 'keam-coaching';
-                        else if (n.includes('SCHOOLING') || n.includes('INTEGRATED')) slug = 'integrated-schooling';
-                        else if (n.includes('REPEATERS')) slug = 'repeaters-batch';
-                        else if (n.includes('FOUNDATION')) slug = 'foundation-course';
+                        if (n.includes('REPEATERS')) slug = 'repeaters-batch';
+                        else if (n.includes('INTEGRATED') || n.includes('SCHOOLING')) slug = 'integrated-schooling-program';
+                        else if (n.includes('PLUS ONE') || n.includes('PLUS TWO')) slug = 'plus-one-plus-two-tuition';
+                        else if (n.includes('FOUNDATION')) slug = 'foundation-program';
+                        else if (n.includes('ONLINE') || n.includes('TUITION')) slug = 'online-tuition-program';
 
                         return (
-                          <div className="flex gap-3">
-                            <Link href={slug ? `/courses/${slug}` : '/courses'} className="flex-1">
-                              <Button variant="outline" fullWidth size="sm" className="rounded-xl border-slate-100 text-slate-600 group-hover:bg-primary-green group-hover:text-white group-hover:border-primary-green transition-all py-2">
-                                View Details
-                              </Button>
-                            </Link>
-                          </div>
+                          <Link href={slug ? `/courses/${slug}` : '/courses'}>
+                            <button className="w-12 h-12 rounded-2xl bg-dark text-white flex items-center justify-center hover:bg-primary-green transition-all duration-300 group/btn shadow-lg shadow-dark/10 hover:shadow-primary-green/20">
+                              <ArrowUpRight size={20} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                            </button>
+                          </Link>
                         );
                       })()}
                     </div>
                   </div>
                 </motion.div>
               );
+
             })}
           </div>
         )}

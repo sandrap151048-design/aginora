@@ -3,70 +3,105 @@ import { Course, Gallery } from '@/models/index';
 
 const courses = [
   {
-    name: 'NEET Coaching',
-    slug: 'neet-coaching',
-    duration: '1 Year / 2 Years',
-    fees: '₹ 1,45,000',
-    status: 'Active',
-    description: 'Intensive preparation for Medical Entrance with expert faculty. Our NEET coaching program is meticulously designed to help aspiring medical students crack the toughest entrance exam with ease.',
-    eligibility: 'Class 11 / 12 / Repeaters',
-    syllabus: ['Diversity in Living World', 'Structure and Function', 'Plant Physiology', 'Human Physiology', 'Reproduction', 'Genetics and Evolution'],
-    features: ['Daily Practice Papers', 'Weekly Mock Tests', 'Personal Mentoring', '24/7 Doubt Clearing'],
-  },
-  {
-    name: 'JEE Coaching',
-    slug: 'jee-coaching',
-    duration: '1 Year / 2 Years',
-    fees: '₹ 1,45,000',
-    status: 'Active',
-    description: 'Comprehensive Engineering Entrance training focusing on Maths and Physics. Expert faculty provides shortcuts and tips for solving complex problems within seconds.',
-    eligibility: 'Class 11 / 12 / Repeaters',
-    syllabus: ['Mathematics - Algebra & Calculus', 'Physics - Mechanics & Electrodynamics', 'Physical Chemistry', 'Organic Chemistry'],
-    features: ['Aakash Level Study Material', 'Monthly Ranking Tests', 'Digital Classrooms', 'One-on-One Support'],
-  },
-  {
-    name: 'KEAM Coaching',
-    slug: 'keam-coaching',
-    duration: '1 Year',
-    fees: '₹ 1,35,000',
-    status: 'Active',
-    description: 'Specially designed course for Kerala Engineering and Medical Entrance. Ensures students are well-versed in the specific pattern and difficulty level of the KEAM exam.',
-    eligibility: 'Class 12',
-    syllabus: ['State Board Physics', 'State Board Chemistry', 'Mathematics for Kerala Entrance'],
-    features: ['Previous Year Paper Solving', 'State-Level Mock Tests', 'Concise Revision Notes'],
-  },
-  {
-    name: 'Integrated Schooling',
-    slug: 'integrated-schooling',
-    duration: '2 Years',
-    fees: '₹ 1,80,000',
-    status: 'Active',
-    description: 'Parallel preparation for Plus Two along with entrance coaching. Combines regular board syllabus with advanced entrance preparation.',
-    eligibility: 'Class 10 Completed',
-    syllabus: ['NCERT CBSE Syllabus', 'Entrance Modules Phase 1 & 2'],
-    features: ['School + Coaching under one roof', 'Integrated Study Board', 'Hostel Facilities'],
-  },
-  {
     name: 'Repeaters Batch',
     slug: 'repeaters-batch',
     duration: '1 Year (Residential)',
-    fees: '₹ 1,50,000',
+    fees: 'Contact for Fees',
     status: 'Active',
-    description: 'Dedicated long-term course for students wishing to re-attempt. A rigorous one-year program for 100% entrance preparation focus.',
-    eligibility: 'Class 12 Pass',
-    syllabus: ['Comprehensive NEET/JEE Syllabus Revision', 'Advanced Problem Solving Techniques'],
-    features: ['Daily 12-hour Study Plan', 'Strict Supervision', 'Personal Attention'],
+    description: 'For students who are reappearing with a focused goal to secure top ranks. Intensive coaching for NEET & JEE with concept-focused teaching and daily problem-solving sessions.',
+    eligibility: 'Class 12 Pass / Repeaters',
+    syllabus: [
+      'Intensive coaching for NEET & JEE',
+      'Concept-focused teaching with daily problem-solving sessions',
+      'Personalized mentoring & performance tracking',
+      'Weekly tests and All-India level mock exams',
+      'Doubt-clearing sessions with expert faculty'
+    ],
+    features: [
+      'Result-oriented approach with individual attention',
+      'Structured revision plans for maximum score improvement',
+      'Limited batch size for better focus'
+    ],
   },
   {
-    name: 'Foundation Course',
-    slug: 'foundation-course',
-    duration: '1 - 3 Years',
-    fees: '₹ 25,000',
+    name: 'Integrated Schooling Program',
+    slug: 'integrated-schooling-program',
+    duration: '2 Years',
+    fees: 'Contact for Fees',
     status: 'Active',
-    description: 'Pre-entrance orientation for 8th, 9th and 10th standard students. Building the base for future competition with logical reasoning and analytical skills.',
-    eligibility: 'Class 8, 9, 10',
-    syllabus: ['Logical Reasoning', 'Mental Ability', 'Advanced Maths & Science Basics'],
-    features: ['NTSE Preparation', 'Olympiad Training', 'Interactive Learning'],
+    description: 'A complete academic + entrance preparation system under one roof. School curriculum + NEET/JEE coaching simultaneously.',
+    eligibility: 'Class 10 Completed',
+    syllabus: [
+      'School curriculum + NEET/JEE coaching simultaneously',
+      'Well-planned daily schedule balancing board & entrance prep',
+      'Continuous assessment and progress monitoring',
+      'Experienced faculty for both academics and entrance'
+    ],
+    features: [
+      'No need for separate tuition or coaching',
+      'Saves time and reduces academic pressure',
+      'Early competitive exam preparation advantage'
+    ],
+  },
+  {
+    name: 'Plus One & Plus Two Tuition + Entrance Coaching',
+    slug: 'plus-one-plus-two-tuition',
+    duration: '1 Year / 2 Years',
+    fees: 'Contact for Fees',
+    status: 'Active',
+    description: 'Designed for higher secondary students aiming for strong board results and entrance success. Full syllabus coverage with parallel preparation for NEET/JEE.',
+    eligibility: 'Class 11 / 12',
+    syllabus: [
+      'Full syllabus coverage for Plus One & Plus Two',
+      'Parallel preparation for NEET/JEE',
+      'Online & offline learning flexibility',
+      'Regular tests, assignments, and revision sessions'
+    ],
+    features: [
+      'Dual focus on board exams + entrance exams',
+      'Hybrid learning model for convenience',
+      'Continuous academic support'
+    ],
+  },
+  {
+    name: 'Foundation Program',
+    slug: 'foundation-program',
+    duration: '1 – 5 Years',
+    fees: 'Contact for Fees',
+    status: 'Active',
+    description: 'Build strong basics early for future competitive success. Concept clarity in Maths & Science, logical reasoning and problem-solving skills.',
+    eligibility: 'Class 6, 7, 8, 9, 10',
+    syllabus: [
+      'Concept clarity in Maths & Science',
+      'Logical reasoning and problem-solving skills',
+      'Early exposure to competitive exam patterns',
+      'Interactive and engaging learning methods'
+    ],
+    features: [
+      'Strong academic foundation from a young age',
+      'Develops analytical thinking skills',
+      'Prepares students for NEET/JEE journey early'
+    ],
+  },
+  {
+    name: 'Online Tuition Program',
+    slug: 'online-tuition-program',
+    duration: 'Flexible',
+    fees: 'Contact for Fees',
+    status: 'Active',
+    description: 'Flexible learning for students who prefer studying from home. Live and recorded classes with subject-wise expert faculty.',
+    eligibility: 'Class 6 – 12',
+    syllabus: [
+      'Live and recorded classes',
+      'Subject-wise expert faculty',
+      'Doubt-clearing sessions and digital study materials',
+      'Regular online tests and performance analysis'
+    ],
+    features: [
+      'Learn anytime, anywhere',
+      'Affordable and accessible quality education',
+      'Ideal for students with busy schedules'
+    ],
   },
 ];
 
@@ -91,7 +126,7 @@ export async function seed() {
     await Course.insertMany(courses);
     await Gallery.insertMany(galleryItems);
     
-    console.log("✅ Seeding complete! 6 Courses + 6 Gallery items added.");
+    console.log("✅ Seeding complete! 5 Courses + 6 Gallery items added.");
   } catch (err) {
     console.error("❌ Seeding failed:", err);
     throw err;

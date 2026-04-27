@@ -23,15 +23,14 @@ export async function seedDatabase() {
     const courseCount = await Course.countDocuments();
     if (courseCount === 0) {
       const courses = [
-        { name: 'NEET Coaching', slug: 'neet-coaching', duration: '1 Year', fees: '₹ 45,000', status: 'Active', description: 'Intensive medical entrance prep' },
-        { name: 'JEE Coaching', slug: 'jee-coaching', duration: '1 Year', fees: '₹ 45,000', status: 'Active', description: 'Engineering entrance prep' },
-        { name: 'KEAM Coaching', slug: 'keam-coaching', duration: '1 Year', fees: '₹ 35,000', status: 'Active', description: 'Kerala entrance prep' },
-        { name: 'Integrated Schooling', slug: 'integrated-schooling', duration: '2 Years', fees: '₹ 80,000', status: 'Active', description: 'Schooling + Entrance' },
-        { name: 'Repeaters Batch', slug: 'repeaters-batch', duration: '1 Year', fees: '₹ 50,000', status: 'Active', description: 'Dedicated NEET/JEE repeaters' },
-        { name: 'Foundation Course', slug: 'foundation-course', duration: '2 Years', fees: '₹ 25,000', status: 'Active', description: 'Pre-entrance orientation for 8th-10th' },
+        { name: 'Repeaters Batch', slug: 'repeaters-batch', duration: '1 Year (Residential)', fees: 'Contact for Fees', status: 'Active', description: 'For students who are reappearing with a focused goal to secure top ranks.' },
+        { name: 'Integrated Schooling Program', slug: 'integrated-schooling-program', duration: '2 Years', fees: 'Contact for Fees', status: 'Active', description: 'A complete academic + entrance preparation system under one roof.' },
+        { name: 'Plus One & Plus Two Tuition + Entrance Coaching', slug: 'plus-one-plus-two-tuition', duration: '1 Year / 2 Years', fees: 'Contact for Fees', status: 'Active', description: 'Designed for higher secondary students aiming for strong board results and entrance success.' },
+        { name: 'Foundation Program', slug: 'foundation-program', duration: '1 – 5 Years', fees: 'Contact for Fees', status: 'Active', description: 'Build strong basics early for future competitive success.' },
+        { name: 'Online Tuition Program', slug: 'online-tuition-program', duration: 'Flexible', fees: 'Contact for Fees', status: 'Active', description: 'Flexible learning for students who prefer studying from home.' },
       ];
       await Course.insertMany(courses);
-      console.log("✅ 6 Courses seeded.");
+      console.log("✅ 5 Courses seeded.");
     }
 
     // 3. Seed Students

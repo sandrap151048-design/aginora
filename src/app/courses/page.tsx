@@ -6,6 +6,7 @@ import Courses from '@/components/home/Courses';
 import Link from 'next/link';
 import StudyModes from '@/components/home/StudyModes';
 
+
 export default function CoursesPage() {
   return (
     <main className="pt-28 md:pt-36">

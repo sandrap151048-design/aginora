@@ -10,39 +10,35 @@ import PageHero from '@/components/layout/PageHero';
 import { CheckCircle2, Clock, GraduationCap, ChevronRight } from 'lucide-react';
 
 const courseImages: { [key: string]: string } = {
-  'neet-coaching': '/courses/neet.jpg',
-  'jee-coaching': '/courses/jee.jpg',
-  'keam-coaching': '/courses/keam.jpg',
-  'integrated-schooling': '/courses/integrated.jpg',
   'repeaters-batch': '/courses/repeaters.jpg',
-  'foundation-course': '/courses/foundation.jpg',
+  'integrated-schooling-program': '/courses/integrated.jpg',
+  'plus-one-plus-two-tuition': '/courses/jee.jpg',
+  'foundation-program': '/courses/foundation.jpg',
+  'online-tuition-program': '/courses/keam.jpg',
 };
 
 const syllabusImages: { [key: string]: string } = {
-  'neet-coaching': '/courses/jee.jpg',
-  'jee-coaching': '/courses/keam.jpg',
-  'keam-coaching': '/courses/integrated.jpg',
-  'integrated-schooling': '/courses/repeaters.jpg',
-  'repeaters-batch': '/courses/foundation.jpg',
-  'foundation-course': '/courses/neet.jpg',
+  'repeaters-batch': '/courses/repeaters.jpg',
+  'integrated-schooling-program': '/courses/integrated.jpg',
+  'plus-one-plus-two-tuition': '/courses/jee.jpg',
+  'foundation-program': '/courses/foundation.jpg',
+  'online-tuition-program': '/courses/keam.jpg',
 };
 
 const featuresImages: { [key: string]: string } = {
-  'neet-coaching': '/courses/keam.jpg',
-  'jee-coaching': '/courses/integrated.jpg',
-  'keam-coaching': '/courses/repeaters.jpg',
-  'integrated-schooling': '/courses/foundation.jpg',
-  'repeaters-batch': '/courses/neet.jpg',
-  'foundation-course': '/courses/jee.jpg',
+  'repeaters-batch': '/courses/repeaters.jpg',
+  'integrated-schooling-program': '/courses/integrated.jpg',
+  'plus-one-plus-two-tuition': '/courses/jee.jpg',
+  'foundation-program': '/courses/foundation.jpg',
+  'online-tuition-program': '/courses/keam.jpg',
 };
 
 const enrolImages: { [key: string]: string } = {
-  'neet-coaching': '/courses/integrated.jpg',
-  'jee-coaching': '/courses/foundation.jpg',
-  'keam-coaching': '/courses/neet.jpg',
-  'integrated-schooling': '/courses/jee.jpg',
-  'repeaters-batch': '/courses/keam.jpg',
-  'foundation-course': '/courses/repeaters.jpg',
+  'repeaters-batch': '/courses/repeaters.jpg',
+  'integrated-schooling-program': '/courses/integrated.jpg',
+  'plus-one-plus-two-tuition': '/courses/jee.jpg',
+  'foundation-program': '/courses/foundation.jpg',
+  'online-tuition-program': '/courses/keam.jpg',
 };
 
 import { useModal } from '@/context/ModalContext';
