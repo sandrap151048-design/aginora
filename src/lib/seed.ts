@@ -23,12 +23,12 @@ export async function seedDatabase() {
     const courseCount = await Course.countDocuments();
     if (courseCount === 0) {
       const courses = [
-        { name: 'NEET Coaching', duration: '1 Year', fees: '₹ 45,000', status: 'Active', description: 'Intensive medical entrance prep' },
-        { name: 'JEE Coaching', duration: '1 Year', fees: '₹ 45,000', status: 'Active', description: 'Engineering entrance prep' },
-        { name: 'KEAM Coaching', duration: '1 Year', fees: '₹ 35,000', status: 'Active', description: 'Kerala entrance prep' },
-        { name: 'Integrated Schooling', duration: '2 Years', fees: '₹ 80,000', status: 'Active', description: 'Schooling + Entrance' },
-        { name: 'Repeaters Batch', duration: '1 Year', fees: '₹ 50,000', status: 'Active', description: 'Dedicated NEET/JEE repeaters' },
-        { name: 'Foundation Course', duration: '2 Years', fees: '₹ 25,000', status: 'Active', description: 'Pre-entrance orientation for 8th-10th' },
+        { name: 'NEET Coaching', slug: 'neet-coaching', duration: '1 Year', fees: '₹ 45,000', status: 'Active', description: 'Intensive medical entrance prep' },
+        { name: 'JEE Coaching', slug: 'jee-coaching', duration: '1 Year', fees: '₹ 45,000', status: 'Active', description: 'Engineering entrance prep' },
+        { name: 'KEAM Coaching', slug: 'keam-coaching', duration: '1 Year', fees: '₹ 35,000', status: 'Active', description: 'Kerala entrance prep' },
+        { name: 'Integrated Schooling', slug: 'integrated-schooling', duration: '2 Years', fees: '₹ 80,000', status: 'Active', description: 'Schooling + Entrance' },
+        { name: 'Repeaters Batch', slug: 'repeaters-batch', duration: '1 Year', fees: '₹ 50,000', status: 'Active', description: 'Dedicated NEET/JEE repeaters' },
+        { name: 'Foundation Course', slug: 'foundation-course', duration: '2 Years', fees: '₹ 25,000', status: 'Active', description: 'Pre-entrance orientation for 8th-10th' },
       ];
       await Course.insertMany(courses);
       console.log("✅ 6 Courses seeded.");
