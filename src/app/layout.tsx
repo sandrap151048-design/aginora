@@ -30,6 +30,7 @@ export const metadata: Metadata = {
 };
 
 import { Providers } from "@/components/Providers";
+import MobileNav from "@/components/layout/MobileNav";
 
 export default function RootLayout({
   children,
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Toaster position="top-right" />
         <Providers>
           {children}
+          <MobileNav />
         </Providers>
       </body>
     </html>

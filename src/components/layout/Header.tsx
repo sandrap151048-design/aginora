@@ -76,68 +76,11 @@ const Header = () => {
               >
                 Apply Now
               </Button>
-              {/* Mobile Menu Toggle */}
-              <button 
-                className="lg:hidden w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-dark" 
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
             </div>
           </div>
         </motion.header>
       </div>
 
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="fixed inset-0 z-40 bg-white md:hidden pt-32 px-8"
-          >
-            <nav className="flex flex-col gap-4">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.1 }}
-                  key={link.name}
-                >
-                  <Link 
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-4xl font-black text-dark hover:text-primary-green transition-colors tracking-tighter"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
-              <div className="pt-10 flex flex-col gap-4">
-                <Button 
-                  size="lg" 
-                  fullWidth 
-                  className="rounded-3xl"
-                  onClick={() => {
-                    setIsOpen(false);
-                    openApplicationModal();
-                  }}
-                >
-                  Apply Now
-                </Button>
-                <Link 
-                  href="/admin/login" 
-                  onClick={() => setIsOpen(false)}
-                  className="text-center text-slate-500 font-bold uppercase tracking-widest text-xs py-4 border border-slate-100 rounded-3xl hover:bg-slate-50 transition-colors"
-                >
-                  Login
-                </Link>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
