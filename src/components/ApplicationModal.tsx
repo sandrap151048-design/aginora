@@ -34,7 +34,6 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
       const data = await res.json();
       
       if (res.ok && data.success) {
-        toast.success('Application submitted successfully!');
         setSubmitted(true);
         setTimeout(() => {
           onClose();
