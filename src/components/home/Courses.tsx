@@ -91,7 +91,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative"
                 >
                   {/* Top Image Section */}
-                  <div className="h-56 relative overflow-hidden shrink-0">
+                  <div className="h-48 relative overflow-hidden shrink-0">
                     <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <img
                       src={courseImage}
@@ -108,17 +108,17 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-8 flex flex-col flex-1 bg-white relative z-20">
-                    <div className="flex-1 space-y-4">
-                      <h3 className="text-2xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
+                  <div className="p-6 flex flex-col flex-1 bg-white relative z-20">
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-lg font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
                         {course.name}
                       </h3>
-                      <p className="text-slate-500 font-medium leading-relaxed text-sm">
-                        {course.description || "Premium coaching program designed for top-rank success with personalized attention and comprehensive study materials."}
+                      <p className="text-slate-500 font-medium leading-relaxed text-[13px]">
+                        {course.description || "Premium coaching program designed for top-rank success with personalized attention."}
                       </p>
                     </div>
 
-                    <div className="pt-8 mt-auto border-t border-slate-100/50">
+                    <div className="pt-6 mt-auto border-t border-slate-100/50">
                       {(() => {
                         const n = course.name.toUpperCase();
                         let slug = '';
@@ -129,15 +129,15 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                         else if (n.includes('ONLINE') || n.includes('TUITION')) slug = 'online-tuition-program';
 
                         return (
-                          <div className="flex gap-3">
-                            <Link href={slug ? `/courses/${slug}` : '/courses'} className="flex-1">
-                              <button className="w-full py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
+                          <div className="flex flex-col gap-2">
+                            <Link href={slug ? `/courses/${slug}` : '/courses'} className="w-full">
+                              <button className="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
                                 Course Details
                               </button>
                             </Link>
-                            <Link href={`/register?course=${encodeURIComponent(course.name)}`} className="flex-1">
+                            <Link href={`/register?course=${encodeURIComponent(course.name)}`} className="w-full">
                               <button 
-                                className="w-full py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-green-500/20"
+                                className="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-green-500/20"
                               >
                                 Register Now
                               </button>
