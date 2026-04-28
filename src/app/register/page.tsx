@@ -113,94 +113,94 @@ function RegisterForm() {
           <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
             <User size={11} className="text-primary-green" /> Name*
           </label>
+          <input
+            required
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
+            placeholder="Your Name"
+          />
+        </div>
+
+        {/* District Field */}
+        <div className="space-y-1">
+          <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+            <MapPin size={11} className="text-primary-green" /> District*
+          </label>
+          <div className="relative">
+            <select
+              required
+              value={formData.district}
+              onChange={(e) => setFormData({ ...formData, district: e.target.value })}
+              className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
+            >
+              <option value="">Select District</option>
+              {districts.map(d => <option key={d} value={d}>{d}</option>)}
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+              <ChevronDown size={14} />
+            </div>
+          </div>
+        </div>
+
+        {/* Phone Section */}
+        <div className="grid grid-cols-3 gap-3">
+          <div className="col-span-1 space-y-1">
+            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+              <Phone size={11} className="text-primary-green" /> Code*
+            </label>
+            <div className="relative">
+              <select
+                value={formData.countryCode}
+                onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl pl-4 pr-8 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
+              >
+                <option value="+91">+91</option>
+                <option value="+971">+971</option>
+                <option value="+44">+44</option>
+                <option value="+1">+1</option>
+              </select>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown size={12} />
+              </div>
+            </div>
+          </div>
+          <div className="col-span-2 space-y-1">
+            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+              <Phone size={11} className="text-primary-green" /> Phone Number*
+            </label>
             <input
               required
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
               className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
-              placeholder="Your Name"
+              placeholder="10-digit number"
             />
           </div>
+        </div>
 
-          {/* District Field */}
-          <div className="space-y-1">
-            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-              <MapPin size={11} className="text-primary-green" /> District*
-            </label>
-            <div className="relative">
-              <select
-                required
-                value={formData.district}
-                onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
-              >
-                <option value="">Select District</option>
-                {districts.map(d => <option key={d} value={d}>{d}</option>)}
-              </select>
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                <ChevronDown size={14} />
-              </div>
+        {/* Course Field */}
+        <div className="space-y-1">
+          <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+            <GraduationCap size={11} className="text-primary-green" /> Select Your Course*
+          </label>
+          <div className="relative">
+            <select
+              required
+              value={formData.course}
+              onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+              className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
+            >
+              <option value="">Select Course</option>
+              {programs.map(p => <option key={p.name} value={p.name}>{p.name}</option>)}
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+              <ChevronDown size={14} />
             </div>
           </div>
-
-          {/* Phone Section */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="col-span-1 space-y-1">
-              <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-                <Hash size={11} className="text-primary-green" /> Code*
-              </label>
-              <div className="relative">
-                <select
-                  value={formData.countryCode}
-                  onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-                  className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-3 text-xs font-bold text-dark focus:outline-none appearance-none cursor-pointer"
-                >
-                  <option value="+91">+91</option>
-                  <option value="+971">+971</option>
-                  <option value="+44">+44</option>
-                  <option value="+1">+1</option>
-                </select>
-                <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                  <ChevronDown size={10} />
-                </div>
-              </div>
-            </div>
-            <div className="col-span-2 space-y-1">
-              <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-                <Phone size={11} className="text-primary-green" /> Phone Number*
-              </label>
-              <input
-                required
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
-                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
-                placeholder="10-digit number"
-              />
-            </div>
-          </div>
-
-          {/* Course Field */}
-          <div className="space-y-1">
-            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-              <GraduationCap size={11} className="text-primary-green" /> Select Your Course*
-            </label>
-            <div className="relative">
-              <select
-                required
-                value={formData.course}
-                onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
-              >
-                <option value="">Select Course</option>
-                {programs.map(p => <option key={p.name} value={p.name}>{p.name}</option>)}
-              </select>
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                <ChevronDown size={14} />
-              </div>
-            </div>
-          </div>
+        </div>
 
         <div className="flex items-center justify-between gap-4 py-3 px-1 border-t border-slate-100 mt-2">
           <div className="flex items-center gap-2 text-[8px] font-black text-slate-400 uppercase tracking-widest">
