@@ -24,7 +24,7 @@ const Centers = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-primary-green hover:text-white transition-all duration-500 group"
+                  className="p-6 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-primary-green hover:text-white transition-all duration-500 group"
                 >
                   <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-green mb-6 shadow-sm group-hover:bg-white/20 group-hover:text-white transition-colors">
                     <f.icon size={28} />
@@ -48,7 +48,7 @@ const Centers = () => {
             <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-lg">
               Our state-of-the-art coaching centers are designed to provide the perfect balance of technology and tranquility, ensuring a high-performance learning environment.
             </p>
-            <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800" 
                 alt="Ajinorah Academy Modern Classroom" 

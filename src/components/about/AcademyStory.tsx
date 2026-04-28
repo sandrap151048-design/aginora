@@ -17,7 +17,7 @@ const AcademyStory = () => {
             viewport={{ once: true }}
             className="lg:w-1/2 relative"
           >
-            <div className="relative rounded-[4rem] overflow-hidden shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                <img 
                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800" 
                  alt="Academy Excellence" 
@@ -26,7 +26,7 @@ const AcademyStory = () => {
                <div className="absolute inset-0 bg-gradient-to-tr from-primary-green/20 to-transparent" />
             </div>
             {/* Floating Card */}
-            <div className="absolute -bottom-10 -right-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100 hidden md:block">
+            <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 hidden md:block">
                <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-primary-green/10 text-primary-green rounded-2xl flex items-center justify-center">
                      <Award size={32} />

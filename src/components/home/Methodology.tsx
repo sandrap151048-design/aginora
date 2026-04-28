@@ -66,12 +66,12 @@ const Methodology = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="p-8 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-xl transition-all group"
+                className="p-6 bg-white rounded-3xl border border-slate-100 hover:shadow-xl transition-all group"
               >
                 <div className={`w-14 h-14 ${step.color.replace('bg-', 'bg-').concat('/10')} ${step.color.replace('bg-', 'text-')} rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-sm`}>
                   <step.icon size={28} strokeWidth={2.5} />
                 </div>
-                <h4 className="text-xl font-black text-dark mb-3 tracking-tighter uppercase">{step.title}</h4>
+                <h4 className="text-lg font-black text-dark mb-3 tracking-tighter uppercase">{step.title}</h4>
                 <p className="text-sm text-slate-500 font-medium leading-relaxed">
                   {step.desc}
                 </p>
