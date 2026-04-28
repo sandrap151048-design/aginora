@@ -92,18 +92,18 @@ function RegisterForm() {
   }
 
   return (
-    <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden relative group transition-all hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)]">
-      <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-primary-green via-emerald-400 to-primary-green" />
+    <div className="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden relative group transition-all hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] max-w-md mx-auto lg:ml-auto">
+      <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-primary-green via-emerald-400 to-primary-green" />
 
-      <div className="bg-slate-950 px-6 py-5 text-white relative overflow-hidden">
+      <div className="bg-slate-950 px-6 py-4 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-24 h-24 bg-primary-green/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10">
-          <div className="flex items-center gap-2 mb-1">
-            <GraduationCap size={16} className="text-primary-green" />
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-primary-green">Session 2024–25</span>
+          <div className="flex items-center gap-2 mb-0.5">
+            <GraduationCap size={14} className="text-primary-green" />
+            <span className="text-[8px] font-black uppercase tracking-[0.3em] text-primary-green">Session 2024–25</span>
           </div>
-          <h3 className="text-xl font-black tracking-tight">Complete <span className="text-primary-green">Registration</span></h3>
-          <p className="text-white/50 text-[11px] font-medium">Quick and easy enrollment process.</p>
+          <h3 className="text-lg font-black tracking-tight">Complete <span className="text-primary-green">Registration</span></h3>
+          <p className="text-white/50 text-[10px] font-medium">Quick and easy enrollment process.</p>
         </div>
       </div>
 
@@ -113,91 +113,91 @@ function RegisterForm() {
           <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
             <User size={11} className="text-primary-green" /> Name*
           </label>
-          <input
-            required
-            type="text"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full h-11 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
-            placeholder="Your Name"
-          />
-        </div>
-
-        {/* District Field */}
-        <div className="space-y-1">
-          <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-            <MapPin size={11} className="text-primary-green" /> District*
-          </label>
-          <div className="relative">
-            <select
+            <input
               required
-              value={formData.district}
-              onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-              className="w-full h-11 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
-            >
-              <option value="">Select District</option>
-              {districts.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-              <ChevronDown size={14} />
-            </div>
+              type="text"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
+              placeholder="Your Name"
+            />
           </div>
-        </div>
 
-        {/* Phone Section */}
-        <div className="grid grid-cols-3 gap-3">
-          <div className="col-span-1 space-y-1">
-            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">
-              Code*
+          {/* District Field */}
+          <div className="space-y-1">
+            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+              <MapPin size={11} className="text-primary-green" /> District*
             </label>
             <div className="relative">
               <select
-                value={formData.countryCode}
-                onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-                className="w-full h-11 bg-slate-50 border-2 border-slate-100 rounded-xl px-3 text-xs font-bold text-dark focus:outline-none appearance-none cursor-pointer"
+                required
+                value={formData.district}
+                onChange={(e) => setFormData({ ...formData, district: e.target.value })}
+                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
               >
-                <option value="+91">+91</option>
-                <option value="+971">+971</option>
-                <option value="+44">+44</option>
-                <option value="+1">+1</option>
+                <option value="">Select District</option>
+                {districts.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown size={14} />
+              </div>
             </div>
           </div>
-          <div className="col-span-2 space-y-1">
-            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-              <Phone size={11} className="text-primary-green" /> Phone Number*
-            </label>
-            <input
-              required
-              type="tel"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
-              className="w-full h-11 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
-              placeholder="10-digit number"
-            />
-          </div>
-        </div>
 
-        {/* Course Field */}
-        <div className="space-y-1">
-          <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-            <GraduationCap size={11} className="text-primary-green" /> Select Your Course*
-          </label>
-          <div className="relative">
-            <select
-              required
-              value={formData.course}
-              onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-              className="w-full h-11 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
-            >
-              <option value="">Select Course</option>
-              {programs.map(p => <option key={p.name} value={p.name}>{p.name}</option>)}
-            </select>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-              <ChevronDown size={14} />
+          {/* Phone Section */}
+          <div className="grid grid-cols-3 gap-3">
+            <div className="col-span-1 space-y-1">
+              <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                Code*
+              </label>
+              <div className="relative">
+                <select
+                  value={formData.countryCode}
+                  onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                  className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-3 text-xs font-bold text-dark focus:outline-none appearance-none cursor-pointer"
+                >
+                  <option value="+91">+91</option>
+                  <option value="+971">+971</option>
+                  <option value="+44">+44</option>
+                  <option value="+1">+1</option>
+                </select>
+              </div>
+            </div>
+            <div className="col-span-2 space-y-1">
+              <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                <Phone size={11} className="text-primary-green" /> Phone Number*
+              </label>
+              <input
+                required
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
+                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all placeholder:text-slate-300"
+                placeholder="10-digit number"
+              />
             </div>
           </div>
-        </div>
+
+          {/* Course Field */}
+          <div className="space-y-1">
+            <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+              <GraduationCap size={11} className="text-primary-green" /> Select Your Course*
+            </label>
+            <div className="relative">
+              <select
+                required
+                value={formData.course}
+                onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                className="w-full h-10 bg-slate-50 border-2 border-slate-100 rounded-xl px-4 text-sm font-semibold text-dark focus:outline-none focus:border-primary-green focus:bg-white transition-all appearance-none cursor-pointer"
+              >
+                <option value="">Select Course</option>
+                {programs.map(p => <option key={p.name} value={p.name}>{p.name}</option>)}
+              </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown size={14} />
+              </div>
+            </div>
+          </div>
 
         <div className="flex items-center justify-between gap-4 py-3 px-1 border-t border-slate-100 mt-2">
           <div className="flex items-center gap-2 text-[8px] font-black text-slate-400 uppercase tracking-widest">
@@ -238,6 +238,7 @@ const programs = [
     lightColor: 'bg-blue-100',
     textColor: 'text-blue-600',
     slug: 'online-tuition-program',
+    image: 'https://boardingadmission.com/exam/mainlogin/assets/img/blog/3.jpg',
     features: ['Live Interactive Classes', 'Recorded Sessions', 'Digital Study Materials']
   },
   { 
@@ -248,6 +249,7 @@ const programs = [
     lightColor: 'bg-purple-100',
     textColor: 'text-purple-600',
     slug: 'foundation-program',
+    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800',
     features: ['Classes 8th - 10th', 'Base Building', 'Entrance Orientation']
   },
   { 
@@ -258,6 +260,7 @@ const programs = [
     lightColor: 'bg-emerald-100',
     textColor: 'text-emerald-600',
     slug: 'plus-one-plus-two-tuition',
+    image: 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800',
     features: ['Parallel Coaching', 'NEET/JEE Ready', 'Chapter-wise Exams']
   },
   { 
@@ -268,6 +271,7 @@ const programs = [
     lightColor: 'bg-secondary-green',
     textColor: 'text-primary-green',
     slug: 'integrated-schooling-program',
+    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800',
     features: ['School + Academy', 'On-Campus Sessions', 'Total Consistency']
   },
   { 
@@ -278,6 +282,7 @@ const programs = [
     lightColor: 'bg-red-100',
     textColor: 'text-red-600',
     slug: 'repeaters-batch',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800',
     features: ['Intensive Prep', 'Residential Campus', 'Full-day Curriculum']
   },
 ];
@@ -293,9 +298,9 @@ export default function RegisterPage() {
           <img
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
             alt="University"
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/90 to-primary-green/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/70 to-primary-green/30" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -326,7 +331,7 @@ export default function RegisterPage() {
                 ))}
               </div>
             </div>
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative lg:mt-20 lg:translate-y-12">
               <Suspense fallback={<div>Loading...</div>}>
                 <RegisterForm />
               </Suspense>
@@ -341,45 +346,75 @@ export default function RegisterPage() {
             <div className="text-primary-green font-black text-xs uppercase tracking-[0.3em]">Our Specializations</div>
             <h2 className="text-5xl font-black text-dark tracking-tighter">Programs Built for <span className="text-primary-green">Champions</span></h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {programs.map((prog, i) => (
-              <div key={i} className="group relative bg-white border border-slate-200 rounded-[3rem] overflow-hidden flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-4">
-                <div className={`h-3 w-full ${prog.color}`} />
-                <div className="p-10 flex-1 flex flex-col">
-                  <div className="flex justify-between items-start mb-8">
-                    <div className={`px-4 py-1.5 rounded-full ${prog.lightColor} ${prog.textColor} text-[10px] font-black uppercase tracking-widest`}>
-                      {prog.badge}
-                    </div>
-                    <div className={`text-slate-100 font-black text-6xl select-none transition-colors duration-500 group-hover:opacity-20 ${prog.textColor.replace('text-', 'group-hover:text-')}`}>
-                      0{i + 1}
-                    </div>
+              <div key={i} className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative">
+                {/* Top Image Section */}
+                <div className="h-64 relative overflow-hidden shrink-0">
+                  <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                  <img
+                    src={prog.image || 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800'}
+                    alt={prog.name}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  />
+                  {/* Badge */}
+                  <div className={`absolute top-6 left-6 z-20 px-5 py-2.5 bg-white text-primary-green text-[10px] font-black uppercase tracking-[0.2em] rounded-xl shadow-xl border border-white/50`}>
+                    {prog.badge}
                   </div>
-                  
-                  <h3 className="text-3xl font-black text-dark mb-2 leading-tight group-hover:text-primary-green transition-colors">{prog.name}</h3>
-                  <div className="flex items-center gap-2 text-slate-400 font-bold text-sm mb-8">
-                    <Clock size={16} className="text-primary-green" /> {prog.duration}
-                  </div>
+                </div>
 
-                  <div className="space-y-4 mb-10 flex-1">
-                    {prog.features.map((f, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-xl ${prog.lightColor} flex items-center justify-center shrink-0`}>
-                          <CheckCircle2 size={14} className={prog.textColor} />
+                {/* Content Section */}
+                <div className="p-8 flex flex-col flex-1 bg-white relative z-20">
+                  <div className="flex-1 space-y-4">
+                    <h3 className="text-xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
+                      {prog.name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-slate-400 font-bold text-xs">
+                      <Clock size={14} className="text-primary-green" /> {prog.duration}
+                    </div>
+
+                    <div className="space-y-3 pt-2">
+                      {prog.features.map((f, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <div className={`w-6 h-6 rounded-lg ${prog.lightColor} flex items-center justify-center shrink-0`}>
+                            <CheckCircle2 size={12} className={prog.textColor} />
+                          </div>
+                          <span className="text-slate-500 font-medium text-[13px]">{f}</span>
                         </div>
-                        <span className="text-slate-600 font-semibold text-sm">{f}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
 
-                  <Link href={`/courses/${prog.slug}`} className="block">
-                    <Button 
-                      fullWidth 
-                      variant="outline"
-                      className={`h-14 rounded-2xl border-2 border-slate-100 font-black uppercase tracking-widest text-xs transition-all duration-300 ${prog.textColor.replace('text-', 'group-hover:border-').replace('600', '400')} ${prog.color.replace('bg-', 'group-hover:bg-')} group-hover:text-white`}
-                    >
-                      View Program Details
-                    </Button>
-                  </Link>
+                  <div className="pt-6 mt-8 border-t border-slate-100">
+                    <div className="flex gap-4">
+                      <Link href={`/courses/${prog.slug}`} className="flex-1">
+                        <button className="w-full py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-slate-500 bg-slate-50/50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
+                          Course Details
+                        </button>
+                      </Link>
+                      <button 
+                        onClick={() => {
+                          const form = document.querySelector('form');
+                          if (form) {
+                            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            const select = form.querySelector('select[name="course"]') || form.querySelectorAll('select')[1];
+                            if (select) {
+                              (select as HTMLSelectElement).value = prog.name;
+                              // Trigger change event for react
+                              const event = new Event('change', { bubbles: true });
+                              select.dispatchEvent(event);
+                            }
+                          }
+                        }}
+                        className="flex-1 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-primary-green/20"
+                      >
+                        Register Now
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
