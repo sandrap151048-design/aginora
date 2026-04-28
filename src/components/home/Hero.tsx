@@ -57,19 +57,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Feature Cards in Hero */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-5xl mx-auto w-full">
-            {[
-              { title: 'Expert Faculty', desc: 'Learn from the best in the industry.' },
-              { title: 'Proven Results', desc: 'Consistent toppers in NEET & JEE.' },
-              { title: 'Smart Classrooms', desc: 'Digitally enabled learning environment.' },
-            ].map((card, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-left hover:bg-white/20 transition-all cursor-default">
-                <h4 className="text-primary-green font-black text-lg mb-1">{card.title}</h4>
-                <p className="text-white/70 text-sm font-medium">{card.desc}</p>
-              </div>
-            ))}
-          </div>
+
         </motion.div>
       </div>
 
