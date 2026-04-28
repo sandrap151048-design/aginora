@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import TopBanner from '@/components/layout/TopBanner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Send, User, Phone, Mail, GraduationCap, ChevronDown, CheckCircle2, Star, Users, BookOpen, Trophy, Headphones, Clock, Shield, ArrowRight, Sparkles, Target, Zap, Heart, MapPin } from 'lucide-react';
+import { Send, User, Phone, Mail, GraduationCap, ChevronDown, CheckCircle2, Star, Users, BookOpen, Trophy, Headphones, Clock, Shield, ArrowRight, Sparkles, Target, Zap, Heart, MapPin, Hash } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { toast } from 'react-hot-toast';
 import Link from 'next/link';
@@ -147,8 +147,8 @@ function RegisterForm() {
           {/* Phone Section */}
           <div className="grid grid-cols-3 gap-3">
             <div className="col-span-1 space-y-1">
-              <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                Code*
+              <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                <Hash size={11} className="text-primary-green" /> Code*
               </label>
               <div className="relative">
                 <select
@@ -161,6 +161,9 @@ function RegisterForm() {
                   <option value="+44">+44</option>
                   <option value="+1">+1</option>
                 </select>
+                <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown size={10} />
+                </div>
               </div>
             </div>
             <div className="col-span-2 space-y-1">
