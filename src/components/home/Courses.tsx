@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import { ArrowUpRight, BookOpen, Download } from 'lucide-react';
+import { useModal } from '@/context/ModalContext';
 
 const defaultCourses = [
   { _id: '1', name: 'Online Tuition Program', duration: 'Flexible', fees: 'Contact for Fees', status: 'Active', description: 'Flexible learning for students who prefer studying from home.', image: 'https://boardingadmission.com/exam/mainlogin/assets/img/blog/3.jpg' },
@@ -18,6 +19,7 @@ interface CoursesProps {
 }
 
 const Courses = ({ initialCourses }: CoursesProps) => {
+  const { openApplicationModal } = useModal();
   const [courses, setCourses] = useState<any[]>(initialCourses || defaultCourses);
   const [loading, setLoading] = useState(!initialCourses);
 
@@ -86,36 +88,37 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group bg-white rounded-[2rem] overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                  className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative"
                 >
                   {/* Top Image Section */}
-                  <div className="h-64 relative overflow-hidden shrink-0">
+                  <div className="h-56 relative overflow-hidden shrink-0">
+                    <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <img
                       src={courseImage}
                       alt={course.name}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800';
                       }}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                     />
-                    {/* Optional Badge */}
-                    <div className="absolute top-4 right-4 z-10 px-4 py-1.5 bg-primary-green text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
+                    {/* Premium Badge */}
+                    <div className="absolute top-5 left-5 z-20 px-4 py-2 bg-white/90 backdrop-blur-md text-primary-green text-[10px] font-black uppercase tracking-[0.2em] rounded-xl shadow-xl border border-white/50">
                       {course.name.includes('Online') ? 'Online' : 'Offline'}
                     </div>
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 md:p-8 flex flex-col flex-1">
+                  <div className="p-8 flex flex-col flex-1 bg-white relative z-20">
                     <div className="flex-1 space-y-4">
-                      <h3 className="text-2xl font-bold text-primary-green tracking-tight leading-tight">
+                      <h3 className="text-2xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
                         {course.name}
                       </h3>
-                      <p className="text-slate-600 font-medium leading-relaxed text-sm">
-                        {course.description || "Premium coaching program designed for top-rank success."}
+                      <p className="text-slate-500 font-medium leading-relaxed text-sm">
+                        {course.description || "Premium coaching program designed for top-rank success with personalized attention and comprehensive study materials."}
                       </p>
                     </div>
 
-                    <div className="pt-8 mt-auto">
+                    <div className="pt-8 mt-auto border-t border-slate-100/50">
                       {(() => {
                         const n = course.name.toUpperCase();
                         let slug = '';
@@ -126,11 +129,20 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                         else if (n.includes('ONLINE') || n.includes('TUITION')) slug = 'online-tuition-program';
 
                         return (
-                          <Link href={slug ? `/courses/${slug}` : '/courses'}>
-                            <button className="bg-primary-green text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-dark transition-all duration-300 shadow-md hover:shadow-lg">
-                              Course Details
-                            </button>
-                          </Link>
+                          <div className="flex gap-3">
+                            <Link href={slug ? `/courses/${slug}` : '/courses'} className="flex-1">
+                              <button className="w-full py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
+                                Course Details
+                              </button>
+                            </Link>
+                            <Link href={`/register?course=${encodeURIComponent(course.name)}`} className="flex-1">
+                              <button 
+                                className="w-full py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-green-500/20"
+                              >
+                                Register Now
+                              </button>
+                            </Link>
+                          </div>
                         );
                       })()}
                     </div>

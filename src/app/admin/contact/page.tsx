@@ -53,11 +53,12 @@ export default function ContactManagementPage() {
       return;
     }
 
-    const headers = ['Name', 'Email', 'Phone', 'Course', 'Message', 'Date'];
+    const headers = ['Name', 'Email', 'Phone', 'District', 'Course', 'Message', 'Date'];
     const csvData = enquiries.map(item => [
       item.name,
-      item.email,
+      item.email || 'N/A',
       item.phone,
+      item.district || 'N/A',
       item.course,
       item.message?.replace(/,/g, ' '),
       new Date(item.createdAt).toLocaleDateString()
@@ -118,7 +119,8 @@ export default function ContactManagementPage() {
                   <td className="px-8 py-6">
                     <div>
                       <p className="font-bold text-dark">{item.name}</p>
-                      <p className="text-sm text-slate-500">{item.phone} • {item.email}</p>
+                      <p className="text-sm text-slate-500">{item.phone} {item.district ? `• ${item.district}` : ''}</p>
+                      {item.email && <p className="text-[10px] text-slate-400 font-medium">{item.email}</p>}
                     </div>
                   </td>
                   <td className="px-8 py-6">
@@ -174,7 +176,11 @@ export default function ContactManagementPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Contact Info</p>
-                  <p className="font-bold text-dark">{selectedEnquiry.phone} • {selectedEnquiry.email}</p>
+                  <p className="font-bold text-dark">
+                    {selectedEnquiry.phone} 
+                    {selectedEnquiry.district ? ` • ${selectedEnquiry.district}` : ''}
+                  </p>
+                  {selectedEnquiry.email && <p className="text-sm text-slate-500">{selectedEnquiry.email}</p>}
                 </div>
                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Message</p>

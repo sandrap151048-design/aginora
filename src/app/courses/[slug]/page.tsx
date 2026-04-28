@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { coursesData } from '@/data/courses';
 import Header from '@/components/layout/Header';
@@ -163,41 +164,51 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                   <img src={enrolImages[params.slug] || '/courses/keam.jpg'} alt="Enrol Now" className="w-full h-full object-cover opacity-30" />
                   <div className="absolute inset-0 bg-black/50" />
                 </div>
-                <div className="relative z-10 space-y-8">
-                  <div className="space-y-2">
-                     <h3 className="text-3xl font-bold text-white leading-tight">Enrol Now</h3>
-                     <div className="w-12 h-1.5 bg-primary-green rounded-full" />
+                <div className="relative z-10 space-y-10">
+                  <div className="text-center">
+                     <h3 className="text-4xl font-black text-white leading-tight mb-2">Enrol Now</h3>
+                     <div className="w-16 h-1 bg-primary-green mx-auto rounded-full" />
                   </div>
-                  <div className="space-y-6">
-                    <div className="flex justify-between items-center pb-4 border-b border-white/20">
-                      <span className="text-white/60 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2"><Clock size={16} /> Duration</span>
-                      <span className="font-bold text-white">{course.duration || 'N/A'}</span>
+                  
+                  <div className="space-y-8">
+                    <div className="border-b border-white/10 pb-6">
+                      <div className="flex items-center gap-3 text-primary-green mb-2">
+                        <Clock size={20} />
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em]">Duration</span>
+                      </div>
+                      <p className="text-2xl font-bold text-white pl-8">{course.duration || 'N/A'}</p>
                     </div>
-                    <div className="flex justify-between items-center pb-4 border-b border-white/20">
-                      <span className="text-white/60 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2"><GraduationCap size={16} /> Eligibility</span>
-                      <span className="font-bold text-white">{course.eligibility || 'N/A'}</span>
+
+                    <div className="border-b border-white/10 pb-6">
+                      <div className="flex items-center gap-3 text-primary-green mb-2">
+                        <GraduationCap size={20} />
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em]">Eligibility</span>
+                      </div>
+                      <p className="text-2xl font-bold text-white pl-8 leading-snug">{course.eligibility || 'N/A'}</p>
                     </div>
                   </div>
-                  <div className="space-y-4 pt-4">
-                    <Button 
-                      onClick={openApplicationModal}
-                      fullWidth 
-                      size="lg" 
-                      className="rounded-3xl h-16 bg-primary-green hover:bg-white hover:text-dark border-none text-dark"
-                    >
-                      Apply Now
-                    </Button>
+
+                  <div className="space-y-4">
+                    <Link href={`/register?course=${encodeURIComponent(title)}`} className="block w-full">
+                      <Button 
+                        fullWidth 
+                        size="lg" 
+                        className="rounded-2xl h-16 bg-primary-green hover:bg-white hover:text-dark border-none text-dark font-black uppercase tracking-widest text-sm shadow-xl shadow-green-500/20"
+                      >
+                        Apply Now
+                      </Button>
+                    </Link>
                     <Button 
                       onClick={handleDownload}
                       variant="outline" 
                       fullWidth 
                       size="lg" 
-                      className="rounded-3xl h-16 text-white border-white/20 hover:bg-white hover:text-dark"
+                      className="rounded-2xl h-16 text-white border-white/20 hover:bg-white hover:text-dark font-black uppercase tracking-widest text-sm"
                     >
                       Download Brochure
                     </Button>
                   </div>
-                  <p className="text-center text-[10px] text-white/50 font-black uppercase tracking-[0.2em] px-4 leading-relaxed">Secured admission for the 2024 academic cycle.</p>
+                  <p className="text-center text-[9px] text-white/40 font-black uppercase tracking-[0.2em] leading-relaxed">Secured admission for the 2024 academic cycle.</p>
                 </div>
               </div>
             </div>

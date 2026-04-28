@@ -37,8 +37,8 @@ const Hero = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-inter leading-tight text-white drop-shadow-xl">
-            Shape Your <br />
-            <span className="text-primary-green">Future</span>
+            Transforming Aspirations <br />
+            Into <span className="text-primary-green">Achievements</span>
           </h1>
 
           <p className="text-base md:text-xl text-white max-w-2xl mx-auto font-bold font-inter drop-shadow-lg leading-relaxed">
@@ -46,14 +46,29 @@ const Hero = () => {
             Empowering students to achieve their academic goals.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-12">
-            <Button 
-              onClick={openApplicationModal}
-              size="lg" 
-              className="rounded-xl px-12 bg-primary-green hover:bg-white hover:text-dark transition-all duration-300 font-black text-sm uppercase tracking-widest shadow-2xl h-16 md:h-14"
-            >
-              Apply Now
-            </Button>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-10">
+            <Link href="/register">
+              <Button 
+                size="lg" 
+                className="rounded-xl px-12 bg-primary-green hover:bg-white hover:text-dark transition-all duration-300 font-black text-sm uppercase tracking-widest shadow-2xl h-16 md:h-14"
+              >
+                Apply Now
+              </Button>
+            </Link>
+          </div>
+
+          {/* Feature Cards in Hero */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-5xl mx-auto w-full">
+            {[
+              { title: 'Expert Faculty', desc: 'Learn from the best in the industry.' },
+              { title: 'Proven Results', desc: 'Consistent toppers in NEET & JEE.' },
+              { title: 'Smart Classrooms', desc: 'Digitally enabled learning environment.' },
+            ].map((card, i) => (
+              <div key={i} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-left hover:bg-white/20 transition-all cursor-default">
+                <h4 className="text-primary-green font-black text-lg mb-1">{card.title}</h4>
+                <p className="text-white/70 text-sm font-medium">{card.desc}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

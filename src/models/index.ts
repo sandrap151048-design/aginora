@@ -3,14 +3,19 @@ import mongoose from "mongoose";
 // Enquiry Model
 const EnquirySchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true },
+  email: { type: String }, // Now optional
   phone: { type: String, required: true },
+  district: { type: String }, // New field
   course: { type: String, required: true },
   message: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 
-export const Enquiry = mongoose.models.Enquiry || mongoose.model("Enquiry", EnquirySchema);
+// Clear model cache in development to ensure schema updates are applied
+if (mongoose.models && mongoose.models.Enquiry) {
+  delete mongoose.models.Enquiry;
+}
+export const Enquiry = mongoose.model("Enquiry", EnquirySchema);
 
 // Student Model
 const StudentSchema = new mongoose.Schema({

@@ -23,13 +23,14 @@ const CTA = () => {
               Join Ajinorah Entrance Academy and unlock your true potential with the best entrance coaching faculty in Kerala.
             </p>
             <div className="flex flex-wrap justify-center gap-6 pt-4">
-              <Button 
-                onClick={openApplicationModal}
-                size="lg" 
-                className="bg-white text-primary-green hover:bg-slate-100 shadow-2xl"
-              >
-                Apply Now
-              </Button>
+              <Link href="/register">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary-green hover:bg-slate-100 shadow-2xl"
+                >
+                  Apply Now
+                </Button>
+              </Link>
               
               <Link href="/contact">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary-blue">

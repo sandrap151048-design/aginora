@@ -68,14 +68,15 @@ const Header = () => {
                 <User size={18} />
                 <span>Login</span>
               </Link>
-              <Button 
-                onClick={openApplicationModal}
-                variant="primary"
-                size="sm" 
-                className="hidden sm:flex font-black rounded-xl px-6 py-2"
-              >
-                Apply Now
-              </Button>
+              <Link href="/register">
+                <Button 
+                  variant="primary"
+                  size="sm" 
+                  className="hidden sm:flex font-black rounded-xl px-6 py-2"
+                >
+                  Apply Now
+                </Button>
+              </Link>
             </div>
           </div>
         </motion.header>

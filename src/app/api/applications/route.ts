@@ -15,8 +15,8 @@ export async function POST(req: Request) {
 
     console.log("Incoming Application Body:", body);
 
-    if (!body.name || !body.email || !body.phone || !body.course) {
-      return NextResponse.json({ success: false, error: 'Missing required fields' }, { status: 400 });
+    if (!body.name || !body.phone || !body.course) {
+      return NextResponse.json({ success: false, error: 'Missing required fields (Name, Phone, or Course)' }, { status: 400 });
     }
 
     const enquiry = await Enquiry.create(body);

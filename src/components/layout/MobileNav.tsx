@@ -20,7 +20,7 @@ const MobileNav = () => {
     { name: 'Contact', href: '/contact', icon: Phone },
     { name: 'About', href: '/about', icon: Info },
     { name: 'Login', href: '/admin/login', icon: User },
-    { name: 'Apply', href: '#', icon: Send, action: openApplicationModal },
+    { name: 'Apply', href: '/register', icon: Send },
   ];
 
   // Don't show on admin pages
