@@ -65,7 +65,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
         ) : courses.length === 0 ? (
           <div className="text-center text-slate-500 py-20">No active courses found.</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {courses.map((course, index) => {
               const getCourseImage = (name: string) => {
                 const n = (name || '').toUpperCase();
@@ -91,7 +91,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative"
                 >
                   {/* Top Image Section */}
-                  <div className="h-64 relative overflow-hidden shrink-0">
+                  <div className="h-52 relative overflow-hidden shrink-0">
                     <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <img
                       src={courseImage}
@@ -108,7 +108,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-8 flex flex-col flex-1 bg-white relative z-20">
+                  <div className="p-6 flex flex-col flex-1 bg-white relative z-20">
                     <div className="flex-1 space-y-4">
                       <h3 className="text-xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
                         {course.name}
@@ -118,7 +118,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-8 border-t border-slate-100">
+                    <div className="pt-5 mt-6 border-t border-slate-100">
                       {(() => {
                         const n = course.name.toUpperCase();
                         let slug = '';
