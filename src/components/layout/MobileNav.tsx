@@ -37,22 +37,7 @@ const MobileNav = () => {
           const isActive = pathname === link.href;
           const Icon = link.icon;
 
-          if (link.action) {
-            return (
-              <button 
-                key={link.name} 
-                onClick={link.action}
-                className="relative flex flex-col items-center gap-0.5 flex-1 min-w-0"
-              >
-                <div className="p-2 rounded-2xl bg-primary-green text-white shadow-lg shadow-primary-green/30">
-                  <Icon size={18} />
-                </div>
-                <span className="text-[8px] font-black uppercase tracking-tight text-primary-green">
-                  {link.name}
-                </span>
-              </button>
-            );
-          }
+
 
           return (
             <Link 
