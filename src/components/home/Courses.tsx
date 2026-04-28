@@ -129,13 +129,13 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                         else if (n.includes('ONLINE') || n.includes('TUITION')) slug = 'online-tuition-program';
 
                         return (
-                          <div className="flex flex-col gap-2">
-                            <Link href={slug ? `/courses/${slug}` : '/courses'} className="w-full">
+                          <div className="flex gap-2">
+                            <Link href={slug ? `/courses/${slug}` : '/courses'} className="flex-1">
                               <button className="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
                                 Course Details
                               </button>
                             </Link>
-                            <Link href={`/register?course=${encodeURIComponent(course.name)}`} className="w-full">
+                            <Link href={`/register?course=${encodeURIComponent(course.name)}`} className="flex-1">
                               <button 
                                 className="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-green-500/20"
                               >
