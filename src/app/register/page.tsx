@@ -260,7 +260,7 @@ const programs = [
     lightColor: 'bg-emerald-100',
     textColor: 'text-emerald-600',
     slug: 'plus-one-plus-two-tuition',
-    image: 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop',
     features: ['Parallel Coaching', 'NEET/JEE Ready', 'Chapter-wise Exams']
   },
   { 
@@ -348,9 +348,9 @@ export default function RegisterPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {programs.map((prog, i) => (
-              <div key={i} className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative">
+              <div key={i} className="group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative">
                 {/* Top Image Section */}
-                <div className="h-64 relative overflow-hidden shrink-0">
+                <div className="h-56 relative overflow-hidden shrink-0">
                   <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <img
                     src={prog.image || 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800'}
@@ -361,13 +361,13 @@ export default function RegisterPage() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                   />
                   {/* Badge */}
-                  <div className={`absolute top-6 left-6 z-20 px-5 py-2.5 bg-white text-primary-green text-[10px] font-black uppercase tracking-[0.2em] rounded-xl shadow-xl border border-white/50`}>
+                  <div className={`absolute top-5 left-5 z-20 px-4 py-2 bg-white/90 backdrop-blur-md ${prog.textColor} text-[10px] font-black uppercase tracking-[0.2em] rounded-xl shadow-xl border border-white/50`}>
                     {prog.badge}
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8 flex flex-col flex-1 bg-white relative z-20">
+                <div className="p-7 flex flex-col flex-1 bg-white relative z-20">
                   <div className="flex-1 space-y-4">
                     <h3 className="text-xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
                       {prog.name}
@@ -388,32 +388,12 @@ export default function RegisterPage() {
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-8 border-t border-slate-100">
-                    <div className="flex gap-4">
-                      <Link href={`/courses/${prog.slug}`} className="flex-1">
-                        <button className="w-full py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-slate-500 bg-slate-50/50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
-                          Course Details
-                        </button>
-                      </Link>
-                      <button 
-                        onClick={() => {
-                          const form = document.querySelector('form');
-                          if (form) {
-                            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            const select = form.querySelector('select[name="course"]') || form.querySelectorAll('select')[1];
-                            if (select) {
-                              (select as HTMLSelectElement).value = prog.name;
-                              // Trigger change event for react
-                              const event = new Event('change', { bubbles: true });
-                              select.dispatchEvent(event);
-                            }
-                          }
-                        }}
-                        className="flex-1 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-primary-green/20"
-                      >
-                        Register Now
+                  <div className="pt-5 mt-6 border-t border-slate-100/50">
+                    <Link href={`/courses/${prog.slug}`} className="block">
+                      <button className="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
+                        View Program Details
                       </button>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
