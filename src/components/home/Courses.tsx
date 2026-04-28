@@ -25,7 +25,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
 
   useEffect(() => {
     if (initialCourses) return;
-    
+
     const fetchCourses = async () => {
       try {
         const res = await fetch('/api/admin/courses?t=' + Date.now());
@@ -65,13 +65,13 @@ const Courses = ({ initialCourses }: CoursesProps) => {
         ) : courses.length === 0 ? (
           <div className="text-center text-slate-500 py-20">No active courses found.</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {courses.map((course, index) => {
               const getCourseImage = (name: string) => {
                 const n = (name || '').toUpperCase();
                 if (n.includes('REPEATERS')) return 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800';
                 if (n.includes('INTEGRATED')) return 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800';
-                if (n.includes('PLUS') || n.includes('TUITION') && !n.includes('ONLINE')) return 'https://images.unsplash.com/photo-1523240715639-6f0647ad66e1?q=80&w=800';
+                if (n.includes('PLUS') || n.includes('TUITION') && !n.includes('ONLINE')) return 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop';
                 if (n.includes('FOUNDATION')) return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800';
                 if (n.includes('ONLINE') || n.includes('DIGITAL')) return 'https://boardingadmission.com/exam/mainlogin/assets/img/blog/3.jpg';
                 return `https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&sig=${index}`;
@@ -91,7 +91,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative"
                 >
                   {/* Top Image Section */}
-                  <div className="h-52 relative overflow-hidden shrink-0">
+                  <div className="h-64 relative overflow-hidden shrink-0">
                     <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <img
                       src={courseImage}
@@ -108,7 +108,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 flex flex-col flex-1 bg-white relative z-20">
+                  <div className="p-8 flex flex-col flex-1 bg-white relative z-20">
                     <div className="flex-1 space-y-4">
                       <h3 className="text-xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
                         {course.name}
@@ -118,7 +118,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                       </p>
                     </div>
 
-                    <div className="pt-5 mt-6 border-t border-slate-100">
+                    <div className="pt-6 mt-8 border-t border-slate-100">
                       {(() => {
                         const n = course.name.toUpperCase();
                         let slug = '';
@@ -136,7 +136,7 @@ const Courses = ({ initialCourses }: CoursesProps) => {
                               </button>
                             </Link>
                             <Link href={`/register?course=${encodeURIComponent(course.name)}`} className="flex-1">
-                              <button 
+                              <button
                                 className="w-full py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-white bg-primary-green hover:bg-dark transition-all duration-300 shadow-xl shadow-primary-green/20"
                               >
                                 Register Now

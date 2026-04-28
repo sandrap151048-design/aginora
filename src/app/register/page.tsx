@@ -92,10 +92,10 @@ function RegisterForm() {
   }
 
   return (
-    <div className="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden relative group transition-all hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] max-w-lg mx-auto lg:ml-auto">
+    <div className="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden relative group transition-all hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] max-w-md mx-auto lg:ml-auto">
       <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-primary-green via-emerald-400 to-primary-green" />
 
-      <div className="bg-slate-950 px-6 py-3 text-white relative overflow-hidden">
+      <div className="bg-slate-950 px-6 py-2.5 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-24 h-24 bg-primary-green/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-0.5">
@@ -107,7 +107,7 @@ function RegisterForm() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="p-5 space-y-3">
+      <form onSubmit={handleSubmit} className="p-4 space-y-2.5">
         {/* Name Field */}
         <div className="space-y-1">
           <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
@@ -346,11 +346,11 @@ export default function RegisterPage() {
             <div className="text-primary-green font-black text-xs uppercase tracking-[0.3em]">Our Specializations</div>
             <h2 className="text-5xl font-black text-dark tracking-tighter">Programs Built for <span className="text-primary-green">Champions</span></h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {programs.map((prog, i) => (
               <div key={i} className="group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative">
                 {/* Top Image Section */}
-                <div className="h-48 relative overflow-hidden shrink-0">
+                <div className="h-40 relative overflow-hidden shrink-0">
                   <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <img
                     src={prog.image || 'https://images.unsplash.com/photo-1501503060809-54bc4151eeac?q=80&w=800'}
@@ -367,7 +367,7 @@ export default function RegisterPage() {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 flex flex-col flex-1 bg-white relative z-20">
+                <div className="p-4 flex flex-col flex-1 bg-white relative z-20">
                   <div className="flex-1 space-y-4">
                     <h3 className="text-xl font-black text-dark tracking-tight leading-tight group-hover:text-primary-green transition-colors duration-300">
                       {prog.name}
@@ -388,7 +388,7 @@ export default function RegisterPage() {
                     </div>
                   </div>
 
-                  <div className="pt-4 mt-5 border-t border-slate-100/50">
+                  <div className="pt-3 mt-4 border-t border-slate-100/50">
                     <Link href={`/courses/${prog.slug}`} className="block">
                       <button className="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-dark transition-all duration-300 border border-slate-200">
                         View Program Details
